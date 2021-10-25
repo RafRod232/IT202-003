@@ -24,6 +24,7 @@ session_start();
 require_once(__DIR__ . "/../lib/functions.php");
 
 ?>
+<link rel="stylesheet" href="styles.css">
 <nav>
     <ul>
         <?php if (is_logged_in()) : ?>
