@@ -63,6 +63,8 @@ function isColliding(a, b) {
 
 // Track the user's score
 var score = 0;
+//Track the user's lives
+var lives = 3;
 // The delay between enemies (in milliseconds)
 var timeBetweenEnemies = 5 * 1000;
 // ID to track the spawn timeout    
@@ -155,17 +157,34 @@ function draw() {
   enemies.forEach(function(enemy) {
     enemy.x -= enemy.s;
     if (enemy.x < 0) {
-      gameOver = true;
+      //gameOver = true;
+      if(!enemy.counted){
+          enemy.counted=true;
+          lives--;
+          makeEnemy();
+      }
+      //makeEnemy();
     }
     context.fillStyle = '#00FF00';
     enemy.draw();
   });
   // Collide the ship with enemies
-  enemies.forEach(function(enemy, i) {
+  enemies.forEach(function(enemy,i) {
     if (isColliding(enemy, ship)) {
-      gameOver = true;
+      //gameOver = true;
+      if(!enemy.counted){
+          enemy.counted=true;
+          lives--;
+          makeEnemy();
+      }
+      //makeEnemy();
     }
+    context.fillStyle = '#00FF00';
+    enemy.draw();
   });
+  if(lives<=0){
+    gameOver=true;
+  }
   // Move the ship
   if (down) {
     ship.y += ship.s;
@@ -215,10 +234,12 @@ function draw() {
   context.fillStyle = '#000000';
   context.font = '24px Arial';
   context.textAlign = 'left';
-  context.fillText('Score: ' + score, 1, 25)
+  context.fillText('Score: ' + score, 1, 25)   
+  context.fillText('Lives Left: '+ lives,200, 25)
   // End or continue the game
-  if (gameOver) {
-    endGame();
+  // Add lives and check if lives are less than 1 than endGame
+  if (gameOver&&lives<=0) {
+      endGame();
   } else {
     window.requestAnimationFrame(draw);
   }
