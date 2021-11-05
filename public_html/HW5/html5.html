@@ -91,6 +91,12 @@ function startGame() {
   timeoutId = setInterval(makeEnemy, timeBetweenEnemies);
   // Make the first enemy
   setTimeout(makeEnemy, 1000);
+  //Change background color of game to distract player
+  setInterval(
+function () {
+  var randomColor = Math.floor(Math.random()*16777215).toString(16);
+  document.body.style.backgroundColor= "#"+randomColor;
+},1000);
   // Kick off the draw loop
   draw();
   // Stop listening for click events
@@ -212,6 +218,10 @@ function draw() {
         enemies.splice(i, 1);
         score++;
         shooting = false;
+        //double score on last life
+        if(lives==1){
+          score+=1;
+        }
         // Make the game harder
         if (score % 10 === 0 && timeBetweenEnemies > 1000) {
           clearInterval(timeoutId);
