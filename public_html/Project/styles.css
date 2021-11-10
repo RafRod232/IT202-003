@@ -1,8 +1,65 @@
-header{
-    background-color: black;
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
-    height: 80px
+.alert-success {
+    background-color: green
+}
+
+.alert-warning {
+    background-color: yellow;
+}
+
+.alert-danger {
+    background-color: red;
+}
+
+.alert-info {
+    background-color: teal;
+}
+html{
+    color: white;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color:mediumorchid;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 17;
+  } 
+  
+  li {
+    float: left;
+  }
+  
+  li a {
+    display: block;
+    color: cyan;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  form{
+    background-color: rgb(56,56,56);
+    color: cyan;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 17;
+}
+input[type="submit"]{
+    background-color:darkcyan;
+    color:ghostwhite;
+}
+
+input[type="text"]{
+    background-color: darkgrey;
+    color:black;
+}
+input[type="password"]{
+    background-color: darkgrey;
+    color:black;
+}
+input[type="email"]{
+    background-color: darkgrey;
+    color:black;
+}
+body{
+    background-color: rgb(56,56,56);
 }
