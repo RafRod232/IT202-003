@@ -62,9 +62,9 @@ Milestone Features:
     - User will be directed to a landing page upon login
         - [ ] This is a protected page (non-logged in users shouldn’t have access)
         - [ ] This can be home, profile, a dashboard, etc
-- [ ] \(mm/dd/yyyy of completion) User will be able to logout
+- [x ] \(11/10/2021 of completion) User will be able to logout
   -  List of Evidence of Feature Completion
-    - Status: Pending (Completed, Partially working, Incomplete, Pending)
+    - Status: Completed (Completed, Partially working, Incomplete, Pending)
     - Direct Link: (Direct link to the file or files in heroku prod for quick testing (even if it's a protected page))
     - Pull Requests
       - PR link #1 (repeat as necessary)
