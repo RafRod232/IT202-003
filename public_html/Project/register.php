@@ -2,7 +2,6 @@
 require(__DIR__ . "/../../partials/nav.php");
 reset_session();
 $email = se($_POST, "email", "", false);
-$username = se($POST, "username", "",false);
 ?>
 <div class="container-fluid">
     <h1>Register</h1>
@@ -10,8 +9,7 @@ $username = se($POST, "username", "",false);
         <div class="mb-3">
             <label class="form-label" for="email">Email</label>
             <input class="form-control" type="email" id="email" name="email" 
-            required value="<?php se($email); ?>" 
-            requried value="<?php se($username);?>" />
+            required value="<?php se($email); ?>" />
         </div>
         <div class="mb-3">
             <label class="form-label" for="username">Username</label>
