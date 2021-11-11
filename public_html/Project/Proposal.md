@@ -23,12 +23,12 @@
 ### Proposal Checklist and Evidence
 Milestone Features:
 	Milestone 1:
-- [ ] \(mm/dd/yyyy of completion) User will be able to register a new account
+- [x] \(11/10/2021 of completion) User will be able to register a new account
   -  List of Evidence of Feature Completion
-    - Status: Pending (Completed, Partially working, Incomplete, Pending)
-    - Direct Link: (Direct link to the file or files in heroku prod for quick testing (even if it's a protected page))
+    - Status: Completed (Completed, Partially working, Incomplete, Pending)
+    - Direct Link:https://rar22-prod.herokuapp.com/Project/register.php
     - Pull Requests
-      - PR link #1 (repeat as necessary)
+      - PR link https://github.com/RafRod232/IT202-003/pull/32
     - Screenshots
       - Screenshot #1 (paste the image so it uploads to github) (repeat as necessary)
         - Screenshot #1 description explaining what you're trying to show
@@ -44,12 +44,12 @@ Milestone Features:
     - Username should be unique
     - System should let user know if username or email is taken and allow the user to correct the error without wiping/clearing the form
         - [ ] The only fields that may be cleared are the password fields
-- [ ] \(mm/dd/yyyy of completion) User will be able to login to their account (given they enter the correct credentials)
+- [x] \(11/10/2021 of completion) User will be able to login to their account (given they enter the correct credentials)
   -  List of Evidence of Feature Completion
-    - Status: Pending (Completed, Partially working, Incomplete, Pending)
-    - Direct Link: (Direct link to the file or files in heroku prod for quick testing (even if it's a protected page))
+    - Status: Completed (Completed, Partially working, Incomplete, Pending)
+    - Direct Link: https://rar22-prod.herokuapp.com/Project/login.php
     - Pull Requests
-      - PR link #1 (repeat as necessary)
+      - PR link #1 https://github.com/RafRod232/IT202-003/pull/32
     - Screenshots
       - Screenshot #1 (paste the image so it uploads to github) (repeat as necessary)
         - Screenshot #1 description explaining what you're trying to show
@@ -62,24 +62,24 @@ Milestone Features:
     - User will be directed to a landing page upon login
         - [ ] This is a protected page (non-logged in users shouldn’t have access)
         - [ ] This can be home, profile, a dashboard, etc
-- [ ] \(mm/dd/yyyy of completion) User will be able to logout
+- [x] \(11/10/2021 of completion) User will be able to logout
   -  List of Evidence of Feature Completion
-    - Status: Pending (Completed, Partially working, Incomplete, Pending)
-    - Direct Link: (Direct link to the file or files in heroku prod for quick testing (even if it's a protected page))
+    - Status: Completed (Completed, Partially working, Incomplete, Pending)
+    - Direct Link: https://rar22-prod.herokuapp.com/Project/logout.php
     - Pull Requests
-      - PR link #1 (repeat as necessary)
+      - PR link #1 https://github.com/RafRod232/IT202-003/pull/32 
     - Screenshots
       - Screenshot #1 (paste the image so it uploads to github) (repeat as necessary)
         - Screenshot #1 description explaining what you're trying to show
     - Logging out will redirect to login page
     - User should see a message that they’ve successfully logged out
     - Session should be destroyed (so the back button doesn’t allow them access back in)
-- [ ] \(mm/dd/yyyy of completion) Basic security rules implemented
+- [x] \(11/10/2021 of completion) Basic security rules implemented
   -  List of Evidence of Feature Completion
-    - Status: Pending (Completed, Partially working, Incomplete, Pending)
-    - Direct Link: (Direct link to the file or files in heroku prod for quick testing (even if it's a protected page))
+    - Status: Completed (Completed, Partially working, Incomplete, Pending)
+    - Direct Link: https://rar22-prod.herokuapp.com/Project/home.php
     - Pull Requests
-      - PR link #1 (repeat as necessary)
+      - PR link #1 https://github.com/RafRod232/IT202-003/pull/32
     - Screenshots
       - Screenshot #1 (paste the image so it uploads to github) (repeat as necessary)
         - Screenshot #1 description explaining what you're trying to show
@@ -88,54 +88,54 @@ Milestone Features:
         - [ ] Function should be called on appropriate pages that only allow logged in users
     - Roles/Authorization:
         - [ ] Have a roles table (see below)
-- [ ] \(mm/dd/yyyy of completion) Basic Roles implemented
+- [x] \(11/10/2021 of completion) Basic Roles implemented
   -  List of Evidence of Feature Completion
-    - Status: Pending (Completed, Partially working, Incomplete, Pending)
-    - Direct Link: (Direct link to the file or files in heroku prod for quick testing (even if it's a protected page))
+    - Status: Completed (Completed, Partially working, Incomplete, Pending)
+    - Direct Link: https://rar22-prod.herokuapp.com/Project/home.php
     - Pull Requests
-      - PR link #1 (repeat as necessary)
+      - PR link #1 https://github.com/RafRod232/IT202-003/pull/32
     - Screenshots
       - Screenshot #1 (paste the image so it uploads to github) (repeat as necessary)
         - Screenshot #1 description explaining what you're trying to show
     - Have a Roles table	(id, name, description, is_active, modified, created)
     - Have a User Roles table (id, user_id, role_id, is_active, created, modified)
     - Include a function to check if a user has a specific role (we won’t use it for this milestone but it should be usable in the future)
-- [ ] \(mm/dd/yyyy of completion) Site should have basic styles/theme applied; everything should be styled
+- [x] \(11/10/2021 of completion) Site should have basic styles/theme applied; everything should be styled
   -  List of Evidence of Feature Completion
-    - Status: Pending (Completed, Partially working, Incomplete, Pending)
-    - Direct Link: (Direct link to the file or files in heroku prod for quick testing (even if it's a protected page))
+    - Status: Completed (Completed, Partially working, Incomplete, Pending)
+    - Direct Link: https://rar22-prod.herokuapp.com/Project/home.php
     - Pull Requests
-      - PR link #1 (repeat as necessary)
+      - PR link #1 https://github.com/RafRod232/IT202-003/pull/32
     - Screenshots
       - Screenshot #1 (paste the image so it uploads to github) (repeat as necessary)
         - Screenshot #1 description explaining what you're trying to show
     - I.e., forms/input, navigation bar, etc
-- [ ] \(mm/dd/yyyy of completion) Any output messages/errors should be “user friendly”
+- [x] \(11/10/2021 of completion) Any output messages/errors should be “user friendly”
   -  List of Evidence of Feature Completion
-    - Status: Pending (Completed, Partially working, Incomplete, Pending)
-    - Direct Link: (Direct link to the file or files in heroku prod for quick testing (even if it's a protected page))
+    - Status: Completed (Completed, Partially working, Incomplete, Pending)
+    - Direct Link: https://rar22-prod.herokuapp.com/Project/register.php
     - Pull Requests
-      - PR link #1 (repeat as necessary)
+      - PR link #1 https://github.com/RafRod232/IT202-003/pull/32
     - Screenshots
       - Screenshot #1 (paste the image so it uploads to github) (repeat as necessary)
         - Screenshot #1 description explaining what you're trying to show
     - Any technical errors or debug output displayed will result in a loss of points
-- [ ] \(mm/dd/yyyy of completion) User will be able to see their profile
+- [x] \(11/10/2021 of completion) User will be able to see their profile
   -  List of Evidence of Feature Completion
-    - Status: Pending (Completed, Partially working, Incomplete, Pending)
-    - Direct Link: (Direct link to the file or files in heroku prod for quick testing (even if it's a protected page))
+    - Status: Completed (Completed, Partially working, Incomplete, Pending)
+    - Direct Link: https://rar22-prod.herokuapp.com/Project/profile.php 
     - Pull Requests
-      - PR link #1 (repeat as necessary)
+      - PR link #1 https://github.com/RafRod232/IT202-003/pull/32
     - Screenshots
       - Screenshot #1 (paste the image so it uploads to github) (repeat as necessary)
         - Screenshot #1 description explaining what you're trying to show
     - Email, username, etc
-- [ ] \(mm/dd/yyyy of completion) User will be able to edit their profile
+- [x] \(11/10/2021 of completion) User will be able to edit their profile
   -  List of Evidence of Feature Completion
-    - Status: Pending (Completed, Partially working, Incomplete, Pending)
-    - Direct Link: (Direct link to the file or files in heroku prod for quick testing (even if it's a protected page))
+    - Status: Completed (Completed, Partially working, Incomplete, Pending)
+    - Direct Link: https://rar22-prod.herokuapp.com/Project/profile.php
     - Pull Requests
-      - PR link #1 (repeat as necessary)
+      - PR link #1 https://github.com/RafRod232/IT202-003/pull/32
     - Screenshots
       - Screenshot #1 (paste the image so it uploads to github) (repeat as necessary)
         - Screenshot #1 description explaining what you're trying to show
