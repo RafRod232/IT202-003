@@ -28,7 +28,7 @@ Milestone Features:
     - Status: Completed (Completed, Partially working, Incomplete, Pending)
     - Direct Link:https://rar22-prod.herokuapp.com/Project/register.php
     - Pull Requests
-      - PR link https://github.com/RafRod232/IT202-003/pull/32
+      - PR link https://github.com/RafRod232/IT202-003/pull/34
     - Screenshots
       - Screenshot #1 (paste the image so it uploads to github) (repeat as necessary)
         - Screenshot #1 description explaining what you're trying to show
