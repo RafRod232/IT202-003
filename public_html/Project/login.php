@@ -1,7 +1,6 @@
 <?php
 require(__DIR__ . "/../../partials/nav.php");
 $email = se($_POST, "email", "", false);
-$username = se($POST, "username", "",false);
 ?>
 <div class="container-fluid">
     <h1>Login</h1>
@@ -10,7 +9,7 @@ $username = se($POST, "username", "",false);
             <label class="form-label" for="email">Username/Email</label>
             <input class="form-control" type="text" id="email" name="email" required
             required value="<?php se($email); ?>"
-            requried value="<?php se($username);?>" />
+             />
 
         </div>
         <div class="mb-3">
