@@ -28,22 +28,27 @@ Milestone Features:
     - Status: Completed (Completed, Partially working, Incomplete, Pending)
     - Direct Link:https://rar22-prod.herokuapp.com/Project/register.php
     - Pull Requests
-      - PR link https://github.com/RafRod232/IT202-003/pull/34
+      - PR link https://github.com/RafRod232/IT202-003/pull/36
     - Screenshots
-      - Screenshot #1 (paste the image so it uploads to github) (repeat as necessary)
-        - Screenshot #1 description explaining what you're trying to show
+      - Screenshot #1 ![image](https://user-images.githubusercontent.com/89927101/141235769-d030acbc-2890-44c8-9830-e5e05e562dba.png)
+        - Screenshot #1 Shows all the fields in registration and how everything but the email is deleted and alerts user if passwords match
+      - Screenshot #2![image](https://user-images.githubusercontent.com/89927101/141236240-fc8856f3-29c2-4577-81af-8c970df34f02.png)
+        - Screenshot #2 Shows how it asked if username is required
+      - Screenshot #3![image](https://user-images.githubusercontent.com/89927101/141236132-04ce0d6f-e524-48db-a692-e47e9a71c32a.png)
+        - Screenshot #3 Show if email is validated and required 
+        
     - Form Fields
-        - [ ] Username, email, password, confirm password(other fields optional)
-        - [ ] Email is required and must be validated
-        - [ ] Username is required
-        - [ ] Confirm password’s match
+        - [x] Username, email, password, confirm password(other fields optional)
+        - [x] Email is required and must be validated
+        - [x] Username is required
+        - [x] Confirm password’s match
     - Users Table
-        -[ ] Id, username, email, password (60 characters), created, modified
+        -[x] Id, username, email, password (60 characters), created, modified
     - Password must be hashed (plain text passwords will lose points)
     - Email should be unique
     - Username should be unique
     - System should let user know if username or email is taken and allow the user to correct the error without wiping/clearing the form
-        - [ ] The only fields that may be cleared are the password fields
+        - [x] The only fields that may be cleared are the password fields
 - [x] \(11/10/2021 of completion) User will be able to login to their account (given they enter the correct credentials)
   -  List of Evidence of Feature Completion
     - Status: Completed (Completed, Partially working, Incomplete, Pending)
@@ -51,17 +56,21 @@ Milestone Features:
     - Pull Requests
       - PR link #1 https://github.com/RafRod232/IT202-003/pull/32
     - Screenshots
-      - Screenshot #1 (paste the image so it uploads to github) (repeat as necessary)
-        - Screenshot #1 description explaining what you're trying to show
+      - Screenshot #1 ![image](https://user-images.githubusercontent.com/89927101/141236424-a0412c30-1b88-417a-bf8e-f6c17d6a4922.png)
+        - Screenshot #1 Shows login with email or username and password
+      - Screenshot #2![image](https://user-images.githubusercontent.com/89927101/141236685-40aab3c3-11d3-48a9-b9b3-a1890e4485b4.png)
+        - Screenshot #2 Shows Passwords dont match
+      - Screenshot #3 ![image](https://user-images.githubusercontent.com/89927101/141236772-8e3d2ee3-0516-4245-9ea8-16e044ab178f.png)
+        - Screenshot #3 Shows after login I was redirected to home
     - Form
-        - [ ] User can login with email or username
+        - [x] User can login with email or username
             - This can be done as a single field or as two separate fields
-        - [ ] Password is required
+        - [x] Password is required
     - User should see friendly error messages when an account either doesn’t exist or if passwords don’t match
     - Logging in should fetch the user’s details (and roles) and save them into the session.
     - User will be directed to a landing page upon login
-        - [ ] This is a protected page (non-logged in users shouldn’t have access)
-        - [ ] This can be home, profile, a dashboard, etc
+        - [x] This is a protected page (non-logged in users shouldn’t have access)
+        - [x] This can be home, profile, a dashboard, etc
 - [x] \(11/10/2021 of completion) User will be able to logout
   -  List of Evidence of Feature Completion
     - Status: Completed (Completed, Partially working, Incomplete, Pending)
@@ -69,8 +78,10 @@ Milestone Features:
     - Pull Requests
       - PR link #1 https://github.com/RafRod232/IT202-003/pull/32 
     - Screenshots
-      - Screenshot #1 (paste the image so it uploads to github) (repeat as necessary)
-        - Screenshot #1 description explaining what you're trying to show
+      - Screenshot #1 ![image](https://user-images.githubusercontent.com/89927101/141237190-94fd45d9-b4a7-48ba-acec-b7bb404a70a4.png)
+        - Screenshot #1 Shows User succesfully logged out
+      - Screenshot #2 ![image](https://user-images.githubusercontent.com/89927101/141237273-225f8ede-039b-4206-b66a-58a02691174a.png)
+        - Screenshot #2 Shows user cannot go back in after being logged out
     - Logging out will redirect to login page
     - User should see a message that they’ve successfully logged out
     - Session should be destroyed (so the back button doesn’t allow them access back in)
@@ -81,13 +92,15 @@ Milestone Features:
     - Pull Requests
       - PR link #1 https://github.com/RafRod232/IT202-003/pull/32
     - Screenshots
-      - Screenshot #1 (paste the image so it uploads to github) (repeat as necessary)
-        - Screenshot #1 description explaining what you're trying to show
+      - Screenshot #1 ![image](https://user-images.githubusercontent.com/89927101/141237273-225f8ede-039b-4206-b66a-58a02691174a.png)
+        - Screenshot #1 Shows proff that if user is loggen in function works
+      - Screenshot #2 ![image](https://user-images.githubusercontent.com/89927101/141237581-54b63d90-dc15-43c7-983d-b1095d1e935d.png)
+        - Screenshot #2 Show roles table
     - Authentication:
-        - [ ] Function to check if user is logged in
-        - [ ] Function should be called on appropriate pages that only allow logged in users
+        - [x] Function to check if user is logged in
+        - [x] Function should be called on appropriate pages that only allow logged in users
     - Roles/Authorization:
-        - [ ] Have a roles table (see below)
+        - [x] Have a roles table (see below)
 - [x] \(11/10/2021 of completion) Basic Roles implemented
   -  List of Evidence of Feature Completion
     - Status: Completed (Completed, Partially working, Incomplete, Pending)
@@ -95,8 +108,8 @@ Milestone Features:
     - Pull Requests
       - PR link #1 https://github.com/RafRod232/IT202-003/pull/32
     - Screenshots
-      - Screenshot #1 (paste the image so it uploads to github) (repeat as necessary)
-        - Screenshot #1 description explaining what you're trying to show
+      - Screenshot #1 ![image](https://user-images.githubusercontent.com/89927101/141237691-4c3f092a-54b5-47e3-8995-15f7b7686f6a.png)
+        - Screenshot #1 Shows Roles,User Roles table
     - Have a Roles table	(id, name, description, is_active, modified, created)
     - Have a User Roles table (id, user_id, role_id, is_active, created, modified)
     - Include a function to check if a user has a specific role (we won’t use it for this milestone but it should be usable in the future)
@@ -107,8 +120,8 @@ Milestone Features:
     - Pull Requests
       - PR link #1 https://github.com/RafRod232/IT202-003/pull/32
     - Screenshots
-      - Screenshot #1 (paste the image so it uploads to github) (repeat as necessary)
-        - Screenshot #1 description explaining what you're trying to show
+      - Screenshot #1 ![image](https://user-images.githubusercontent.com/89927101/141236772-8e3d2ee3-0516-4245-9ea8-16e044ab178f.png)
+        - Screenshot #1 proof of styling
     - I.e., forms/input, navigation bar, etc
 - [x] \(11/10/2021 of completion) Any output messages/errors should be “user friendly”
   -  List of Evidence of Feature Completion
@@ -117,8 +130,8 @@ Milestone Features:
     - Pull Requests
       - PR link #1 https://github.com/RafRod232/IT202-003/pull/32
     - Screenshots
-      - Screenshot #1 (paste the image so it uploads to github) (repeat as necessary)
-        - Screenshot #1 description explaining what you're trying to show
+      - Screenshot #1 ![image](https://user-images.githubusercontent.com/89927101/141236772-8e3d2ee3-0516-4245-9ea8-16e044ab178f.png)
+        - Screenshot #1 user friendly message greeting the user
     - Any technical errors or debug output displayed will result in a loss of points
 - [x] \(11/10/2021 of completion) User will be able to see their profile
   -  List of Evidence of Feature Completion
@@ -127,8 +140,8 @@ Milestone Features:
     - Pull Requests
       - PR link #1 https://github.com/RafRod232/IT202-003/pull/32
     - Screenshots
-      - Screenshot #1 (paste the image so it uploads to github) (repeat as necessary)
-        - Screenshot #1 description explaining what you're trying to show
+      - Screenshot #1 ![image](https://user-images.githubusercontent.com/89927101/141237019-b9ef5acb-514f-40cc-84a7-2cf8fec2478e.png)
+        - Screenshot #1 User profile shown
     - Email, username, etc
 - [x] \(11/10/2021 of completion) User will be able to edit their profile
   -  List of Evidence of Feature Completion
@@ -137,8 +150,8 @@ Milestone Features:
     - Pull Requests
       - PR link #1 https://github.com/RafRod232/IT202-003/pull/32
     - Screenshots
-      - Screenshot #1 (paste the image so it uploads to github) (repeat as necessary)
-        - Screenshot #1 description explaining what you're trying to show
+      - Screenshot #1 ![image](https://user-images.githubusercontent.com/89927101/141237019-b9ef5acb-514f-40cc-84a7-2cf8fec2478e.png)
+        - Screenshot #1 options to change password is available
     - Changing username/email should properly check to see if it’s available before allowing the change
     - Any other fields should be properly validated
     - Allow password reset (only if the existing correct password is provided)
