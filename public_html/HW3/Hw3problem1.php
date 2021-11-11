@@ -8,47 +8,18 @@
         window.addEventListener("load", () => {
             console.log("loaded via javascript");
             //TODO: add any extra onload processing you may need here
-            window.addEventListener("click",getCurrentSelection);
-
         });
-
         function getCurrentSelection() {
             setTimeout(() => {
                 //added this delay here as some solutions may require it to update properly (i.e., click code may complete before the navigation changes)
-                //TODO: add code for processing the current selection   
-                var url =window.location.href;      
-                var end =url.split("#").pop();
-                if (url!=end) {
-                    updateCurrentPage(end);
-                }
+                //TODO: add code for processing the current selection 
+
                 //Note: likely you'll want to call updateCurrentPage towards the end
             }, 100);
-        } 
+        }
     </script>
     <style>
         /* TODO: make edits here */
-        nav li {
-  display: inline;
-        }
-        nav ul {
-    list-style: none;
-}
-nav a{
-    text-decoration: none;
-}
-        nav a:hover{
-    color:cyan;
-    background-color: brown;
-}
-    nav ul {
-        background-color:aqua;
-    }
-    nav,
-  li{
-      font: 1.5rem 'Papyrus',Fantasy;
-      list-style-type: "✓";
-  }
-
     </style>
     <!-- make the necessary edits above this line -->
 
