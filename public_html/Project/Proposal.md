@@ -157,7 +157,7 @@ Milestone Features:
     - Allow password reset (only if the existing correct password is provided)
         - [ ]Hint: logic for the password check would be similar to login
 	Milestone 2:
-- [ ] \(mm/dd/yyyy of completion)  Pick a simple game to implement, anything that generates a score that’s more advanced than a simple random number generator (may build off of a sample from the site shared in class)
+- [ ] \(mm/dd/yyyy of completion)  Pick a simple game to implement, anything that generates a score that’s more advanced than a simple random number generator
   -  List of Evidence of Feature Completion
     - Status: Pending (Completed, Partially working, Incomplete, Pending)
     - Direct Link: (Direct link to the file or files in heroku prod for quick testing (even if it's a protected page))
@@ -206,7 +206,7 @@ Milestone Features:
   - Top 10 Monthly
   - Top 10 Lifetime
   - Scoreboards should show no more than 10 results; if there are no results a proper message should be displayed (i.e., “No [time period] scores to display”)
-  Milestone 3:
+Milestone 3
 Users will have points associated with their account.
 Alter the User table to include points with a default of 0.
 This field will not be incremented/decremented directly, you must use the PointsHistory table to calculate it and set it each time the points change
