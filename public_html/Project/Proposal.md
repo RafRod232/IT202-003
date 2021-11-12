@@ -206,7 +206,7 @@ Milestone Features:
   - Top 10 Monthly
   - Top 10 Lifetime
   - Scoreboards should show no more than 10 results; if there are no results a proper message should be displayed (i.e., “No [time period] scores to display”)
- Milestone 3:
+Milestone 3
 Users will have points associated with their account.
 Alter the User table to include points with a default of 0.
 This field will not be incremented/decremented directly, you must use the PointsHistory table to calculate it and set it each time the points change
