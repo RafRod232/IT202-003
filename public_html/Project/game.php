@@ -1,3 +1,6 @@
+<?php
+require(__DIR__ . "/../../partials/nav.php");
+?>
 // Collect The Square game
 <canvas id="canvas" width="600" height="400" tabindex="1"></canvas>
 <script>
@@ -107,6 +110,7 @@ function endGame() {
   clearInterval(id);
   // Display the final score
   erase();
+  sendscore();
   context.fillStyle = '#000000';
   context.font = '24px Arial';
   context.textAlign = 'center';
@@ -181,6 +185,15 @@ function draw() {
   } else {
     window.requestAnimationFrame(draw);
   }
+}
+function sendscore(){
+  const http = new XMLHttpRequest();
+  http.onload = function() {
+    flash("Score has been sent", "warning");
+  }
+  http.open("POST","api/save_score.php", true);
+  http.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+  http.send(`score=${score}`);
 }
 
 // Start the game
