@@ -1,7 +1,8 @@
 <?php
 require(__DIR__ . "/../../partials/nav.php");
 ?>
-// Collect The Square game
+//
+Collect The Square game
 <canvas id="canvas" width="600" height="400" tabindex="1"></canvas>
 <script>
 // Get a reference to the canvas DOM element
