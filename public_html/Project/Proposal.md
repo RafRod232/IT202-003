@@ -156,57 +156,24 @@ Milestone Features:
     - Any other fields should be properly validated
     - Allow password reset (only if the existing correct password is provided)
         - [ ]Hint: logic for the password check would be similar to login
-	Milestone 2:
-- [ ] \(mm/dd/yyyy of completion)  Pick a simple game to implement, anything that generates a score that’s more advanced than a simple random number generator
-  -  List of Evidence of Feature Completion
-    - Status: Pending (Completed, Partially working, Incomplete, Pending)
-    - Direct Link: (Direct link to the file or files in heroku prod for quick testing (even if it's a protected page))
-    - Pull Requests
-      - PR link #1 (repeat as necessary)
-    - Screenshots
-      - Screenshot #1 (paste the image so it uploads to github) (repeat as necessary)
-        - Screenshot #1 description explaining what you're trying to show
-  - What game will you be doing?
-    - [game]
-  - Briefly describe it.
-    - [describe]
-    - Note: For this milestone the game doesn’t need to be complete, just have something basic or a placeholder that can generate a score when played.
--[ ] \(mm/dd/yyyy of completion) The system will save the user’s score at the end of the game if the user is logged in
-  -  List of Evidence of Feature Completion
-    - Status: Pending (Completed, Partially working, Incomplete, Pending)
-    - Direct Link: (Direct link to the file or files in heroku prod for quick testing (even if it's a protected page))
-    - Pull Requests
-      - PR link #1 (repeat as necessary)
-    - Screenshots
-      - Screenshot #1 (paste the image so it uploads to github) (repeat as necessary)
-        - Screenshot #1 description explaining what you're trying to show
-  - There should be a scores table (id, user_id, score, created)
-  - Each received score is a new entry (scores will not be updated)
-- [ ] \(mm/dd/yyyy of completion) The user will be able to see their last 10 scores
-  -  List of Evidence of Feature Completion
-    - Status: Pending (Completed, Partially working, Incomplete, Pending)
-    - Direct Link: (Direct link to the file or files in heroku prod for quick testing (even if it's a protected page))
-    - Pull Requests
-      - PR link #1 (repeat as necessary)
-    - Screenshots
-      - Screenshot #1 (paste the image so it uploads to github) (repeat as necessary)
-        - Screenshot #1 description explaining what you're trying to show
-  - Show on their profile page
-  - Ordered by most recent
-- [ ] \(mm/dd/yyyy of completion) Create functions that output the following scoreboards (this will be used later)
-  -  List of Evidence of Feature Completion
-    - Status: Pending (Completed, Partially working, Incomplete, Pending)
-    - Direct Link: (Direct link to the file or files in heroku prod for quick testing (even if it's a protected page))
-    - Pull Requests
-      - PR link #1 (repeat as necessary)
-    - Screenshots
-      - Screenshot #1 (paste the image so it uploads to github) (repeat as necessary)
-        - Screenshot #1 description explaining what you're trying to show
-  - Top 10 Weekly
-  - Top 10 Monthly
-  - Top 10 Lifetime
-  - Scoreboards should show no more than 10 results; if there are no results a proper message should be displayed (i.e., “No [time period] scores to display”)
-Milestone 3
+	<table><tr><td>Milestone 2</td></tr><tr><td><table><tr><td>F1 -  Pick a simple game to implement, anything that generates a score that’s more advanced than a simple random number generator (may build off of a sample from the site shared in class) (2021-12-02)</td></tr><tr><td>Status: complete</td></tr><tr><td>Links:<p>
+
+ [https://rar22-prod.herokuapp.com/Project/game.php](https://rar22-prod.herokuapp.com/Project/game.php)</p></td></tr><tr><td>PRs:<p>
+
+ [https://github.com/RafRod232/IT202-003/pull/60](https://github.com/RafRod232/IT202-003/pull/60)</p></td></tr><tr><td><table><tr><td>F1 - What game will you be doing?<tr><td>Status: completed</td></tr><tr><td><img width="100%" src="https://user-images.githubusercontent.com/89927101/144468712-3f9ef54e-e1a5-4dd1-a542-4b668fedaffd.png"><p>I will be doing a snake game</td></tr></td></tr></table></td></tr><tr><td><table><tr><td>F1 - Briefly describe it.<tr><td>Status: pending</td></tr><tr><td><img width="100%" src="https://user-images.githubusercontent.com/89927101/144468712-3f9ef54e-e1a5-4dd1-a542-4b668fedaffd.png"><p>The main red box will chase the other green box in a time limit while randomizing the location of the green box every time they collide. It is  basic template copied, yet to be edited.</td></tr></td></tr></table></td></tr><table><tr><td>F2 - The system will save the user’s score at the end of the game if the user is logged in ()</td></tr><tr><td>Status: complete</td></tr><tr><td>Links:<p>
+
+ [https://rar22-prod.herokuapp.com/Project/profile.php](https://rar22-prod.herokuapp.com/Project/profile.php)</p></td></tr><tr><td>PRs:<p>
+
+ [https://github.com/RafRod232/IT202-003/pull/56](https://github.com/RafRod232/IT202-003/pull/56)</p></td></tr><tr><td><table><tr><td>F2 - There should be a scores table (id, user_id, score, created)<tr><td>Status: completed</td></tr><tr><td><img width="100%" src="https://user-images.githubusercontent.com/89927101/144471916-138d6c6e-0cfa-4617-98bc-57974aee3ce2.png"><p>This is the table that collects the data </td></tr></td></tr></table></td></tr><tr><td><table><tr><td>F2 - Each received score is a new entry (scores will not be updated)<tr><td>Status: completed</td></tr><tr><td><img width="100%" src="https://user-images.githubusercontent.com/89927101/144471916-138d6c6e-0cfa-4617-98bc-57974aee3ce2.png"><p>This also shows that each entry is new game session</td></tr></td></tr></table></td></tr><table><tr><td>F3 - The user will be able to see their last 10 scores (2021-12-02)</td></tr><tr><td>Status: complete</td></tr><tr><td>Links:<p>
+
+ [https://rar22-prod.herokuapp.com/Project/profile.php](https://rar22-prod.herokuapp.com/Project/profile.php)</p></td></tr><tr><td>PRs:<p>
+
+ [https://github.com/RafRod232/IT202-003/pull/58](https://github.com/RafRod232/IT202-003/pull/58)</p></td></tr><tr><td><table><tr><td>F3 - Show on their profile page<tr><td>Status: completed</td></tr><tr><td><img width="100%" src="https://user-images.githubusercontent.com/89927101/144472790-639434bb-b1ee-4e5c-a518-0fb81c8ab02a.png"><p>Showing score in the profile</td></tr></td></tr></table></td></tr><tr><td><table><tr><td>F3 - Ordered by most recent<tr><td>Status: completed</td></tr><tr><td><img width="100%" src="https://user-images.githubusercontent.com/89927101/144472790-639434bb-b1ee-4e5c-a518-0fb81c8ab02a.png"><p>Shows the timestamps and in order of most recent at top</td></tr></td></tr></table></td></tr><table><tr><td>F4 - Create functions that output the following scoreboards (this will be used later) ()</td></tr><tr><td>Status: complete</td></tr><tr><td>Links:<p>
+
+ [https://rar22-prod.herokuapp.com/Project/profile.php](https://rar22-prod.herokuapp.com/Project/profile.php)</p></td></tr><tr><td>PRs:<p>
+
+ [https://github.com/RafRod232/IT202-003/pull/58](https://github.com/RafRod232/IT202-003/pull/58)</p></td></tr><tr><td><table><tr><td>F4 - Top 10 Weekly<tr><td>Status: completed</td></tr><tr><td><img width="100%" src="https://user-images.githubusercontent.com/89927101/144474419-fec939b4-8f5c-49f4-b798-feaed7c3443b.png"><p>Makes sure code changes to get weekly scores</td></tr></td></tr></table></td></tr><tr><td><table><tr><td>F4 - Top 10 Monthly<tr><td>Status: completed</td></tr><tr><td><img width="100%" src="https://user-images.githubusercontent.com/89927101/144474419-fec939b4-8f5c-49f4-b798-feaed7c3443b.png"><p>Makes sure code changes to get monthly scores</td></tr></td></tr></table></td></tr><tr><td><table><tr><td>F4 - Top 10 Lifetime<tr><td>Status: completed</td></tr><tr><td><img width="100%" src="https://user-images.githubusercontent.com/89927101/144474419-fec939b4-8f5c-49f4-b798-feaed7c3443b.png"><p>Makes sure code changes to get lifetimes scores</td></tr></td></tr></table></td></tr><tr><td><table><tr><td>F4 - Scoreboards should show no more than 10 results; if there are no results a proper message should be displayed <tr><td>Status: completed</td></tr><tr><td><img width="100%" src="https://user-images.githubusercontent.com/89927101/144474857-d397b183-cec7-46c5-af3c-0bb7989f5a4d.png"><p>Shows the scoreboard</td></tr></td></tr></table></td></tr></td></tr></table>
+  Milestone 3:
 Users will have points associated with their account.
 Alter the User table to include points with a default of 0.
 This field will not be incremented/decremented directly, you must use the PointsHistory table to calculate it and set it each time the points change
