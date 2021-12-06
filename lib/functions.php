@@ -130,3 +130,107 @@ function get_url($dest)
     //handle relative path
     return $BASE_PATH . $dest;
 }
+function save_score($score, $user_id, $showFlash = false)
+{
+    if ($user_id < 1) {
+        flash("Error saving score, you may not be logged in", "warning");
+        return;
+    }
+    if ($score <= 0) {
+        flash("Scores of zero are not recorded", "warning");
+        return;
+    }
+    $db = getDB();
+    $stmt = $db->prepare("INSERT INTO GameScores (score, user_id) VALUES (:score, :uid)");
+    try {
+        $stmt->execute([":score" => $score, ":uid" => $user_id]);
+        if ($showFlash) {
+            flash("Saved score of $score", "success");
+        }
+    } catch (PDOException $e) {
+        flash("Error saving score: " . var_export($e->errorInfo, true), "danger");
+    }
+}
+function get_top_10($duration = "day")
+{
+    $d = "day";
+    if (in_array($duration, ["day", "week", "month", "lifetime"])) {
+        //variable is safe
+        $d = $duration;
+    }
+    $db = getDB();
+    $query = "SELECT user_id,username, score, GameScores.created from GameScores join Users on GameScores.user_id = Users.id";
+    if ($d !== "lifetime") {
+        $query .= " WHERE GameScores.created >= DATE_SUB(NOW(), INTERVAL 1 $d)";
+    }
+    $query .= " ORDER BY score Desc, GameScores.created desc LIMIT 10"; 
+    error_log($query);
+    $stmt = $db->prepare($query);
+    $results = [];
+    try {
+        $stmt->execute();
+        $r = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        if ($r) {
+            $results = $r;
+        }
+    } catch (PDOException $e) {
+        error_log("Error fetching scores for $d: " . var_export($e->errorInfo, true));
+    }
+    return $results;
+}
+
+function get_best_score($user_id)
+{
+    $query = "SELECT score from GameScores WHERE user_id = :id ORDER BY score desc LIMIT 1";
+    $db = getDB();
+    $stmt = $db->prepare($query);
+    try {
+        $stmt->execute([":id" => $user_id]);
+        $r = $stmt->fetch(PDO::FETCH_ASSOC);
+        if ($r) {
+            return (int)se($r, "score", 0, false);
+        }
+    } catch (PDOException $e) {
+        error_log("Error fetching best score for user $user_id: " . var_export($e->errorInfo, true));
+    }
+    return 0;
+}
+
+function get_latest_scores($user_id, $limit = 10)
+{
+    if ($limit < 1 || $limit > 50) {
+        $limit = 10;
+    }
+    $query = "SELECT score, created from GameScores where user_id = :id ORDER BY created desc LIMIT :limit";
+    $db = getDB();
+    
+    $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+
+    $stmt = $db->prepare($query);
+    try {
+        $stmt->execute([":id" => $user_id, ":limit" => $limit]);
+        $r = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        if ($r) {
+            return $r;
+        }
+    } catch (PDOException $e) {
+        error_log("Error getting latest $limit scores for user $user_id: " . var_export($e->errorInfo, true));
+    }
+    return [];
+}
+function get_latest_points($user_id){
+    $query = "SELECT points from Users where id = :id";
+    $db = getDB();
+    $db ->setAttribute(PDO::ATTR_EMULATE_PREPARES,false);
+    $stmt = $db->prepare($query);
+    try {
+        $stmt->execute([":id" => $user_id]);
+        $r = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        if ($r) {
+            return $r;
+        }
+    } catch (PDOException $e) {
+        error_log("Error getting points for user $user_id: " . var_export($e->errorInfo, true));
+    }
+    return [];
+}
