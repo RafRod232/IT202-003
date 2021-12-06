@@ -156,57 +156,75 @@ Milestone Features:
     - Any other fields should be properly validated
     - Allow password reset (only if the existing correct password is provided)
         - [ ]Hint: logic for the password check would be similar to login
-	Milestone 2:
-- [ ] \(mm/dd/yyyy of completion)  Pick a simple game to implement, anything that generates a score that’s more advanced than a simple random number generator
-  -  List of Evidence of Feature Completion
-    - Status: Pending (Completed, Partially working, Incomplete, Pending)
-    - Direct Link: (Direct link to the file or files in heroku prod for quick testing (even if it's a protected page))
-    - Pull Requests
-      - PR link #1 (repeat as necessary)
-    - Screenshots
-      - Screenshot #1 (paste the image so it uploads to github) (repeat as necessary)
-        - Screenshot #1 description explaining what you're trying to show
-  - What game will you be doing?
-    - [game]
-  - Briefly describe it.
-    - [describe]
-    - Note: For this milestone the game doesn’t need to be complete, just have something basic or a placeholder that can generate a score when played.
--[ ] \(mm/dd/yyyy of completion) The system will save the user’s score at the end of the game if the user is logged in
-  -  List of Evidence of Feature Completion
-    - Status: Pending (Completed, Partially working, Incomplete, Pending)
-    - Direct Link: (Direct link to the file or files in heroku prod for quick testing (even if it's a protected page))
-    - Pull Requests
-      - PR link #1 (repeat as necessary)
-    - Screenshots
-      - Screenshot #1 (paste the image so it uploads to github) (repeat as necessary)
-        - Screenshot #1 description explaining what you're trying to show
-  - There should be a scores table (id, user_id, score, created)
-  - Each received score is a new entry (scores will not be updated)
-- [ ] \(mm/dd/yyyy of completion) The user will be able to see their last 10 scores
-  -  List of Evidence of Feature Completion
-    - Status: Pending (Completed, Partially working, Incomplete, Pending)
-    - Direct Link: (Direct link to the file or files in heroku prod for quick testing (even if it's a protected page))
-    - Pull Requests
-      - PR link #1 (repeat as necessary)
-    - Screenshots
-      - Screenshot #1 (paste the image so it uploads to github) (repeat as necessary)
-        - Screenshot #1 description explaining what you're trying to show
-  - Show on their profile page
-  - Ordered by most recent
-- [ ] \(mm/dd/yyyy of completion) Create functions that output the following scoreboards (this will be used later)
-  -  List of Evidence of Feature Completion
-    - Status: Pending (Completed, Partially working, Incomplete, Pending)
-    - Direct Link: (Direct link to the file or files in heroku prod for quick testing (even if it's a protected page))
-    - Pull Requests
-      - PR link #1 (repeat as necessary)
-    - Screenshots
-      - Screenshot #1 (paste the image so it uploads to github) (repeat as necessary)
-        - Screenshot #1 description explaining what you're trying to show
-  - Top 10 Weekly
-  - Top 10 Monthly
-  - Top 10 Lifetime
-  - Scoreboards should show no more than 10 results; if there are no results a proper message should be displayed (i.e., “No [time period] scores to display”)
-Milestone 4:
+	<table><tr><td>Milestone 2</td></tr><tr><td><table><tr><td>F1 -  Pick a simple game to implement, anything that generates a score that’s more advanced than a simple random number generator (may build off of a sample from the site shared in class) (2021-12-02)</td></tr><tr><td>Status: complete</td></tr><tr><td>Links:<p>
+
+ [https://rar22-prod.herokuapp.com/Project/game.php](https://rar22-prod.herokuapp.com/Project/game.php)</p></td></tr><tr><td>PRs:<p>
+
+ [https://github.com/RafRod232/IT202-003/pull/60](https://github.com/RafRod232/IT202-003/pull/60)</p></td></tr><tr><td><table><tr><td>F1 - What game will you be doing?<tr><td>Status: completed</td></tr><tr><td><img width="100%" src="https://user-images.githubusercontent.com/89927101/144468712-3f9ef54e-e1a5-4dd1-a542-4b668fedaffd.png"><p>I will be doing a snake game</td></tr></td></tr></table></td></tr><tr><td><table><tr><td>F1 - Briefly describe it.<tr><td>Status: pending</td></tr><tr><td><img width="100%" src="https://user-images.githubusercontent.com/89927101/144468712-3f9ef54e-e1a5-4dd1-a542-4b668fedaffd.png"><p>The main red box will chase the other green box in a time limit while randomizing the location of the green box every time they collide. It is  basic template copied, yet to be edited.</td></tr></td></tr></table></td></tr><table><tr><td>F2 - The system will save the user’s score at the end of the game if the user is logged in ()</td></tr><tr><td>Status: complete</td></tr><tr><td>Links:<p>
+
+ [https://rar22-prod.herokuapp.com/Project/profile.php](https://rar22-prod.herokuapp.com/Project/profile.php)</p></td></tr><tr><td>PRs:<p>
+
+ [https://github.com/RafRod232/IT202-003/pull/56](https://github.com/RafRod232/IT202-003/pull/56)</p></td></tr><tr><td><table><tr><td>F2 - There should be a scores table (id, user_id, score, created)<tr><td>Status: completed</td></tr><tr><td><img width="100%" src="https://user-images.githubusercontent.com/89927101/144471916-138d6c6e-0cfa-4617-98bc-57974aee3ce2.png"><p>This is the table that collects the data </td></tr></td></tr></table></td></tr><tr><td><table><tr><td>F2 - Each received score is a new entry (scores will not be updated)<tr><td>Status: completed</td></tr><tr><td><img width="100%" src="https://user-images.githubusercontent.com/89927101/144471916-138d6c6e-0cfa-4617-98bc-57974aee3ce2.png"><p>This also shows that each entry is new game session</td></tr></td></tr></table></td></tr><table><tr><td>F3 - The user will be able to see their last 10 scores (2021-12-02)</td></tr><tr><td>Status: complete</td></tr><tr><td>Links:<p>
+
+ [https://rar22-prod.herokuapp.com/Project/profile.php](https://rar22-prod.herokuapp.com/Project/profile.php)</p></td></tr><tr><td>PRs:<p>
+
+ [https://github.com/RafRod232/IT202-003/pull/58](https://github.com/RafRod232/IT202-003/pull/58)</p></td></tr><tr><td><table><tr><td>F3 - Show on their profile page<tr><td>Status: completed</td></tr><tr><td><img width="100%" src="https://user-images.githubusercontent.com/89927101/144472790-639434bb-b1ee-4e5c-a518-0fb81c8ab02a.png"><p>Showing score in the profile</td></tr></td></tr></table></td></tr><tr><td><table><tr><td>F3 - Ordered by most recent<tr><td>Status: completed</td></tr><tr><td><img width="100%" src="https://user-images.githubusercontent.com/89927101/144472790-639434bb-b1ee-4e5c-a518-0fb81c8ab02a.png"><p>Shows the timestamps and in order of most recent at top</td></tr></td></tr></table></td></tr><table><tr><td>F4 - Create functions that output the following scoreboards (this will be used later) ()</td></tr><tr><td>Status: complete</td></tr><tr><td>Links:<p>
+
+ [https://rar22-prod.herokuapp.com/Project/profile.php](https://rar22-prod.herokuapp.com/Project/profile.php)</p></td></tr><tr><td>PRs:<p>
+
+ [https://github.com/RafRod232/IT202-003/pull/58](https://github.com/RafRod232/IT202-003/pull/58)</p></td></tr><tr><td><table><tr><td>F4 - Top 10 Weekly<tr><td>Status: completed</td></tr><tr><td><img width="100%" src="https://user-images.githubusercontent.com/89927101/144474419-fec939b4-8f5c-49f4-b798-feaed7c3443b.png"><p>Makes sure code changes to get weekly scores</td></tr></td></tr></table></td></tr><tr><td><table><tr><td>F4 - Top 10 Monthly<tr><td>Status: completed</td></tr><tr><td><img width="100%" src="https://user-images.githubusercontent.com/89927101/144474419-fec939b4-8f5c-49f4-b798-feaed7c3443b.png"><p>Makes sure code changes to get monthly scores</td></tr></td></tr></table></td></tr><tr><td><table><tr><td>F4 - Top 10 Lifetime<tr><td>Status: completed</td></tr><tr><td><img width="100%" src="https://user-images.githubusercontent.com/89927101/144474419-fec939b4-8f5c-49f4-b798-feaed7c3443b.png"><p>Makes sure code changes to get lifetimes scores</td></tr></td></tr></table></td></tr><tr><td><table><tr><td>F4 - Scoreboards should show no more than 10 results; if there are no results a proper message should be displayed <tr><td>Status: completed</td></tr><tr><td><img width="100%" src="https://user-images.githubusercontent.com/89927101/144474857-d397b183-cec7-46c5-af3c-0bb7989f5a4d.png"><p>Shows the scoreboard</td></tr></td></tr></table></td></tr></td></tr></table>
+  Milestone 3:
+Users will have points associated with their account.
+Alter the User table to include points with a default of 0.
+This field will not be incremented/decremented directly, you must use the PointsHistory table to calculate it and set it each time the points change
+Points should show on their profile page
+You may show points elsewhere as well if you wish
+Create a PointsHistory table (id, user_id, point_change, reason, created)
+Any new entry should update the user’s points value (do not update the User points column directly)
+SUM the point_change for the user_id to get the total
+Competitions table should have the following columns (id, name, created, duration, expires (now + duration), current_reward, starting_reward, join_fee, current_participants, min_participants, paid_out (boolean), min_score, first_place_per, second_place_per, third_place_per, cost_to_create, created, modified)
+User will be able to create a competition
+Competitions will start at 1 point (reward)
+User sets a name for the competition
+User determines % given for 1st, 2nd, and 3rd place winners
+Combination must be equal to 100% (no more, no less)
+User determines if it’s free to join or the cost to join (min 0 for free)
+User determines the duration of the competition (in days)
+User can determine the minimum score to qualify (min 0)
+User determines minimum participants for payout (min 3)
+Show any user friendly error messages
+Show user friendly confirmation message that competition was created
+The cost to the creator of the competition will be (1 + starting reward value)
+If they can’t afford it, the competition should not be created
+If they can afford it, automatically add them to the competition
+Each new participant causes the Reward value to increase by at least 1 or 50% of the joining fee rounded up
+Have a page where the User can see active competitions (not expired)
+For this milestone limit the output to a maximum of 10
+Order the results by soonest to expire
+Will need an association table CompetitionParticipants (id, comp_id, user_id, created)
+Comp_id and user_id should be a composite unique key (user can only join a competition once)
+User can join active competitions 
+Creates an entry in CompetitionParticipants
+Recalculate the Competitions.participants value based on the count of participants for this competition from the CompetitionParticipants table.
+Update the Competitions.reward based on the # of participants and the appropriate math from the competition requirements above
+Best to due this based on a simple equation via the initial Competition data and participants
+Show proper error message if user is already registered
+Show proper confirmation if user registered successfully
+Create function that calculates competition winners
+Get all expired and not paid_out competitions
+For each competition
+Check that the participant count against the minimum required
+Get the top 3 winners
+Pick 1 (strike out the option you won’t do; do not delete):
+Option 1: Scores are calculated by the sum of the score from the Scores table where it was earned/created between Competition start and Competition expires timestamps
+Option 2: Where the score was earned/created between when the user joined the competition and when the Competition expires
+Calculate the payout (reward * place_percent)
+Round up the value (it’s ok to pay out an extra point here and there)
+Create entries for the Users in the PointsHistory table
+Apply the new values (SUM) to their points column in the Users table after entry is added
+Reason should be recorded as ‘competition’ (or something with more precise information)
+Mark the competition as paid_out = true
+	Milestone 4:
 User can set their profile to be public or private (will need another column in Users table)
 If public, hide email address from other users
 User will be able to see their competition history
