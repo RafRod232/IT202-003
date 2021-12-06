@@ -90,12 +90,17 @@ $user_id = get_user_id();
     <h1>Profile</h1>
     <div>
         <?php $scores = get_latest_scores($user_id); ?>
+        <?php $points = get_latest_points($user_id); ?> 
         <h3>Latest 10 Scores</h3>   
-        <table class="table text-light">
+        <table class="table text-light">    
             <thead>
                 <th>Score</th>
                 <th>Time</th>
             </thead>
+            Points: 
+            <?php
+            echo $points[0]["points"];// var_dump($points); 
+            ?>
             <tbody>
                 <?php foreach ($scores as $score) : ?>
                     <tr>

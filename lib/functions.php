@@ -218,3 +218,19 @@ function get_latest_scores($user_id, $limit = 10)
     }
     return [];
 }
+function get_latest_points($user_id){
+    $query = "SELECT points from Users where id = :id";
+    $db = getDB();
+    $db ->setAttribute(PDO::ATTR_EMULATE_PREPARES,false);
+    $stmt = $db->prepare($query);
+    try {
+        $stmt->execute([":id" => $user_id]);
+        $r = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        if ($r) {
+            return $r;
+        }
+    } catch (PDOException $e) {
+        error_log("Error getting points for user $user_id: " . var_export($e->errorInfo, true));
+    }
+    return [];
+}
