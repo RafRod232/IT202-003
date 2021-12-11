@@ -234,3 +234,106 @@ function get_latest_points($user_id){
     }
     return [];
 }
+function get_points(){
+    if (is_logged_in()) { 
+        return se($_SESSION["user"], "points", "0", false);
+    }
+    return "";
+}
+function update_points($user_id, $showFlash = false) 
+{
+    if ($user_id < 1) {
+        // flash("Error adjusting points, you may not be logged in", "warning");
+        return;
+    }
+    $db = getDB();
+    $stmt = $db->prepare("UPDATE Users SET points = (SELECT IFNULL(SUM(point_change), 0) FROM PointsHistory P WHERE P.user_id = :uid) WHERE Users.id = :uid");
+    try {
+        $stmt->execute([":uid" => $user_id]);
+        if ($showFlash) {
+            flash("updated points", "success");
+        }
+    } catch (PDOException $e) {
+        flash("Error updating points: " . var_export($e->errorInfo, true), "danger");
+    }
+    $db = getDB();
+    $stmt = $db->prepare("SELECT points from Users where id = :uid");
+    $stmt->execute([":uid"=>$user_id]);
+    $r = $stmt->fetch(PDO::FETCH_ASSOC);
+    $_SESSION["user"]["points"] = (int)se($r, "points", 0, false);
+}
+function adjust_points($points, $user_id, $reason, $showFlash = false) 
+{
+    if ($user_id < 1) {
+        // flash("Error adjusting points, you may not be logged in", "warning");
+        return;
+    }
+    $db = getDB();
+    $stmt = $db->prepare("INSERT INTO PointsHistory (user_id, point_change, reason) VALUES (:uid, :point_change, :reason)");
+    try {
+        $stmt->execute([":uid" => $user_id, "point_change" => $points, "reason" => $reason]);
+        if ($showFlash) {
+            flash("Adjust points by $points", "success");
+        }
+        return true;
+    } catch (PDOException $e) {
+        flash("Error adjusting points: " . var_export($e->errorInfo, true), "danger");
+        return false;
+    }
+}
+function update_participants($comp_id)#this makes sure that each new participant adds 50% of the join fee 
+{
+    $db = getDB();
+    $stmt = $db->prepare("UPDATE Competitions set current_participants = (SELECT IFNULL(COUNT(1),0) FROM CompetitionParticipants WHERE competiton_id = :cid), 
+    current_reward = IF(join_fee > 0, current_reward + CEILING(join_fee *0.5), current_reward) WHERE id = :cid");
+    try {
+        $stmt->execute([":cid" => $comp_id]);
+        return true;
+    } catch (PDOException $e) {
+        error_log("Update competition participant error: " . var_export($e, true));
+    }
+    return false;
+}
+function add_to_competition($comp_id, $user_id)
+{
+    $db = getDB();
+    $stmt = $db->prepare("INSERT INTO CompetitionParticipants (user_id, competition_id) VALUES (:uid, :cid)");
+    try {
+        $stmt->execute([":uid" => $user_id, ":cid" => $comp_id]);
+        update_participants($comp_id);
+        return true;
+    } catch (PDOException $e) {
+        error_log("Join Competition error: " . var_export($e, true));
+    }
+    return true;
+}
+function save_data($table, $data, $ignore = ["submit"])
+{
+    $table = se($table, null, null, false);
+    $db = getDB();
+    $query = "INSERT INTO $table "; //be sure you trust $table
+    //https://www.php.net/manual/en/functions.anonymous.php Example#3
+    $columns = array_filter(array_keys($data), function ($x) use ($ignore) {
+        return !in_array($x, $ignore); // $x !== "submit";
+    });
+    //arrow function uses fn and doesn't have return or { }
+    //https://www.php.net/manual/en/functions.arrow.php
+    $placeholders = array_map(fn ($x) => ":$x", $columns);
+    $query .= "(" . join(",", $columns) . ") VALUES (" . join(",", $placeholders) . ")";
+
+    $params = [];
+    foreach ($columns as $col) {
+        $params[":$col"] = $data[$col];
+    }
+    $stmt = $db->prepare($query);
+    try {
+        $stmt->execute($params);
+        //https://www.php.net/manual/en/pdo.lastinsertid.php
+        //echo "Successfully added new record with id " . $db->lastInsertId();
+        return $db->lastInsertId();
+    } catch (PDOException $e) {
+        //echo "<pre>" . var_export($e->errorInfo, true) . "</pre>";
+        flash("<pre>" . var_export($e->errorInfo, true) . "</pre>");
+        return -1;
+    }
+}
