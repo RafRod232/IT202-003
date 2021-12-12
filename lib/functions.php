@@ -425,7 +425,7 @@ function elog($data)
     echo "<br>" . var_export($data, true) . "<br>";
     error_log(var_export($data, true));
 }
-/* function get_top_scores_for_comp($comp_id, $limit = 10)
+ function get_top_scores_for_comp($comp_id, $limit = 10)
 {
     $db = getDB();
     //below if a user can win more than one place
@@ -546,4 +546,4 @@ function calc_winners()
         error_log("Closing invalid comps error: " . var_export($e, true));
     }
     elog("Done calc winners");
-} */
+} 
