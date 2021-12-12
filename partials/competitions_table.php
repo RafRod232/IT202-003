@@ -63,7 +63,7 @@ foreach ($participants as $comp_id => $key) {
                                 <td>
                                 <?php if (in_array(get_user_id(), $compsAndParticipants[$result["id"]])) : ?>
                                         <button class="btn btn-primary disabled" onclick="event.preventDefault()" disabled>Already Joined</button>
-                                            <?php flash("Already Joined Competition", "warning");?>
+                                            
                                     <?php else : ?>
                                         <form method="POST">
                                             <input type="hidden" name="competition_id" value="<?php se($result, 'id'); ?>" />
