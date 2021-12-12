@@ -1,7 +1,7 @@
 <?php
 require(__DIR__ . "/../../partials/nav.php");
 ?>
-<h1> Competitions</h1>
+<h1> List of Competitions</h1>
 <?php
 require(__DIR__ . "/../../partials/competitions_table.php");
 ?>
