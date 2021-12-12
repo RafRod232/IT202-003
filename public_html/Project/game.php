@@ -219,3 +219,6 @@ function sendpoints(){
 menu();
 canvas.focus();
 </script>
+<?php
+require(__DIR__ . "/../../partials/flash.php");
+?>
