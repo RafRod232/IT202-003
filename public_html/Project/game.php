@@ -12,7 +12,8 @@ var context = canvas.getContext('2d');
 
 // Your score
 var score = 0;
-
+var points = 0;
+var reason = "From game";
 // Properties for your square
 var x = 50; // X position
 var y = 100; // Y position
@@ -112,10 +113,14 @@ function endGame() {
   // Display the final score
   erase();
   sendscore();
+  if(points>0){
+    sendpoints();
+  }
   context.fillStyle = '#000000';
   context.font = '24px Arial';
   context.textAlign = 'center';
-  context.fillText('Final Score: ' + score, canvas.width / 2, canvas.height / 2);
+  context.fillText('Final Score: ' + score, canvas.width / 2, canvas.height / 4);
+  context.fillText('Points Earned: ' + points, canvas.width / 2, canvas.height / 2);
 }
 
 // Move the target square to a random position
@@ -166,6 +171,9 @@ function draw() {
       moveTarget();
       // Increase the score
       score++;
+      if(score%4==0){
+        points++;
+      }
     }
   }
   // Draw the square
@@ -179,6 +187,7 @@ function draw() {
   context.font = '24px Arial';
   context.textAlign = 'left';
   context.fillText('Score: ' + score, 10, 24);
+  context.fillText('Points: ' + points, 200,24);
   context.fillText('Time Remaining: ' + countdown, 10, 50);
   // End the game or keep playing
   if (countdown <= 0) {
@@ -196,8 +205,20 @@ function sendscore(){
   http.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
   http.send(`score=${score}`);
 }
-
+function sendpoints(){
+  const http = new XMLHttpRequest();
+  http.onload = function() {
+    flash("Points have been sent", "warning");
+  }
+  http.open("POST","api/adjust_points.php", true);
+  http.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+  http.send(`points=${points}`);
+  http.send(`reason=${reason}`);
+}
 // Start the game
 menu();
 canvas.focus();
 </script>
+<?php
+require(__DIR__ . "/../../partials/flash.php");
+?>
