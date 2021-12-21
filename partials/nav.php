@@ -39,6 +39,7 @@ require_once(__DIR__ . "/../lib/functions.php");
                 <?php if (is_logged_in()) : ?>
 
                     <li class="nav-item"><a class="nav-link" href="<?php echo get_url('profile.php'); ?>">Profile</a></li>
+                    <li class="nav-item"><a class="nav-link" href="<?php echo get_url('competitionH.php'); ?>">Competition History</a></li>
                 <?php endif; ?>
                 <li class="nav-item"><a class="nav-link" href="<?php echo get_url('game.php'); ?>">Play</a></li>
                 <li class="nav-item"><a class="nav-link" href="<?php echo get_url('create_competition.php'); ?>">Create Competition</a><li>
