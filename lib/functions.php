@@ -546,9 +546,6 @@ function calc_winners()
         error_log("Closing invalid comps error: " . var_export($e, true));
     }
     elog("Done calc winners");
-<<<<<<< HEAD
-} 
-=======
 } 
 function paginate($query, $params = [], $per_page = 10)
 {
@@ -581,4 +578,3 @@ function persistQueryString($page)
     $_GET["page"] = $page;
     return http_build_query($_GET);
 }
->>>>>>> 716468769fa72ef9798312c1eb6f6d713f4f031c

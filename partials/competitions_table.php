@@ -1,9 +1,6 @@
 <?php
 require_once(__DIR__ . "/../lib/functions.php");
-<<<<<<< HEAD
-=======
 $db = getDB();
->>>>>>> 716468769fa72ef9798312c1eb6f6d713f4f031c
 $results = get_latest_10_comp();
 if (isset($_POST["join"])) {
     $user_id = get_user_id();
@@ -12,9 +9,6 @@ if (isset($_POST["join"])) {
     if (join_competition($comp_id, $user_id, $cost)) {
         update_participants($comp_id);
     }
-<<<<<<< HEAD
-    // header("Refresh:0");
-=======
 }
 $per_page = 10;
 $total_query = "SELECT count(1) as total from Competitions where paid_out<1";
@@ -32,7 +26,6 @@ try {
     }
 } catch (PDOException $e) {
     flash("Error getting Competitions" . var_export($e, true) . "</pre>");
->>>>>>> 716468769fa72ef9798312c1eb6f6d713f4f031c
 }
 $participants = [];
 foreach ($results as $result) {
@@ -45,10 +38,6 @@ foreach ($participants as $comp_id => $key) {
 foreach ($participants as $comp_id => $key) {
     foreach ($participants[$comp_id] as $user_id) {
         foreach ($user_id as $uid) {
-<<<<<<< HEAD
-            // echo($uid);
-=======
->>>>>>> 716468769fa72ef9798312c1eb6f6d713f4f031c
             array_push($compsAndParticipants[$comp_id], $uid);
         }
     }
@@ -104,10 +93,7 @@ foreach ($participants as $comp_id => $key) {
                     <?php endif; ?>
                 </tbody>
             </table>
-<<<<<<< HEAD
-=======
             <?php include(__DIR__ . "/pagination.php"); ?>
->>>>>>> 716468769fa72ef9798312c1eb6f6d713f4f031c
         </div>
     </div>
 </div>
