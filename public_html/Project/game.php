@@ -199,7 +199,7 @@ function draw() {
 function sendscore(){
   const http = new XMLHttpRequest();
   http.onload = function() {
-    flash("Score has been sent", "warning");
+    flash("Score has been sent if logged in", "warning");
   }
   http.open("POST","api/save_score.php", true);
   http.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
@@ -208,12 +208,11 @@ function sendscore(){
 function sendpoints(){
   const http = new XMLHttpRequest();
   http.onload = function() {
-    flash("Points have been sent", "warning");
+    flash("Points have been sent if logged in", "warning");
   }
   http.open("POST","api/adjust_points.php", true);
   http.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-  http.send(`points=${points}`);
-  http.send(`reason=${reason}`);
+  http.send(`points=${points}&reason=${reason}`);
 }
 // Start the game
 menu();

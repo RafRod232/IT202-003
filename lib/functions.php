@@ -159,7 +159,7 @@ function get_top_10($duration = "day")
         $d = $duration;
     }
     $db = getDB();
-    $query = "SELECT user_id,score,username GameScores.created from GameScores join Users on GameScores.user_id = Users.id";
+    $query = "SELECT user_id,score,GameScores.created,Users.username from GameScores join Users on GameScores.user_id = Users.id";
     if ($d !== "lifetime") {
         $query .= " WHERE GameScores.created >= DATE_SUB(NOW(), INTERVAL 1 $d)";
     }
