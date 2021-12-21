@@ -1,0 +1,1 @@
+ALTER TABLE GameScores ADD COLUMN username varchar(30) ;

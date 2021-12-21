@@ -87,6 +87,7 @@ foreach ($participants as $comp_id => $key) {
                                             <input type="submit" name="join" class="btn btn-light" value="Join (Cost: <?php se($result, "join_fee", 0) ?>)" />
                                         </form>
                                     <?php endif; ?>
+                                    <a class="btn btn-secondary" href="view_comp.php?id=<?php se($result, 'id'); ?>">View</a>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
