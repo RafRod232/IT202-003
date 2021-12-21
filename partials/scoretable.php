@@ -8,6 +8,7 @@ if (!isset($title)) {
 }
 if (!isset($scores)) {
     $results = get_top_10($duration);
+    //var_dump($results);
 
     switch ($duration) {
         case "day":
@@ -29,7 +30,6 @@ if (!isset($scores)) {
 } else {
     $results = $scores;
 }
-//var_dump($scores);
 ?>
 <div class="card bg-dark">
     <div class="card-body">
