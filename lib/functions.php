@@ -159,7 +159,7 @@ function get_top_10($duration = "day")
         $d = $duration;
     }
     $db = getDB();
-    $query = "SELECT user_id,username, score, GameScores.created from GameScores join Users on GameScores.user_id = Users.id";
+    $query = "SELECT user_id,score,username GameScores.created from GameScores join Users on GameScores.user_id = Users.id";
     if ($d !== "lifetime") {
         $query .= " WHERE GameScores.created >= DATE_SUB(NOW(), INTERVAL 1 $d)";
     }
@@ -358,6 +358,7 @@ function get_user_id_from_comp($comp_id){//This should return all user ids in th
 function join_competition($comp_id, $user_id, $cost)
 {
     $points = get_points();
+    echo($points);
     if ($comp_id > 0) {
         if ($points >= $cost) {
             $db = getDB();
@@ -368,6 +369,8 @@ function join_competition($comp_id, $user_id, $cost)
                 if ($r) {
                     $cost = (int)se($r, "join_fee", 0, false);
                     $name = se($r, "title", "", false);
+                    echo($cost);    
+                    echo($points);
                     if ($points >= $cost) {
                         if (adjust_points($cost*-1, get_user_id(), "Join Competition" . $comp_id)) {
                             if (add_to_competition($comp_id, $user_id)) {
@@ -380,7 +383,7 @@ function join_competition($comp_id, $user_id, $cost)
                             return false;
                         }
                     } else {
-                        flash("You can't afford to join this competition1", "warning");
+                        flash("You can't afford to join this competition", "warning");
                         return false;
 
                     }
@@ -430,7 +433,7 @@ function elog($data)
     $db = getDB();
     //below if a user can win more than one place
     $stmt = $db->prepare(
-        "SELECT score, s.created, u.id as user_id FROM Scores s 
+        "SELECT score, s.created, u.id as user_id,u.username as username FROM GameScores s 
     JOIN CompetitionParticipants pc on pc.user_id = s.user_id 
     JOIN Competitions c on c.id = pc.competition_id
     JOIN Users u on u.id = s.user_id WHERE c.id = :cid AND s.score >= c.min_score AND s.created 
