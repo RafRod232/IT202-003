@@ -1,11 +1,20 @@
 <?php
 require_once(__DIR__ . "/../../partials/nav.php");
-is_logged_in(true);
+//is_logged_in(true);
+$user_id = se($_GET, "id", get_user_id(), false);
+$isMe = $user_id===get_user_id();
+$edit = !!se($_GET, "edit", false, false); 
+if ($user_id < 1) {
+    flash("Invalid user", "danger");
+    redirect("home.php");
+}
 ?>
 <?php
-if (isset($_POST["save"])) {
+if (isset($_POST["save"]) && $isMe && $edit) {
+    $db = getDB();
     $email = se($_POST, "email", null, false);
     $username = se($_POST, "username", null, false);
+    $visibility = !!se($_POST,"visibility",false,false) ?1:0;
     $hasError = false;
     //sanitize
     $email = sanitize_email($email);
@@ -20,7 +29,6 @@ if (isset($_POST["save"])) {
     }
     if (!$hasError) {
         $params = [":email" => $email, ":username" => $username, ":id" => get_user_id()];
-        $db = getDB();
         $stmt = $db->prepare("UPDATE Users set email = :email, username = :username where id = :id");
         try {
             $stmt->execute($params);
@@ -84,22 +92,70 @@ if (isset($_POST["save"])) {
 <?php
 $email = get_user_email();
 $username = get_username();
-$user_id = get_user_id();
+$created = "";
+$public = false;
+$db = getDB();
+$stmt = $db->prepare("SELECT username, created, visibility from Users where id = :id");
+try {
+    $stmt->execute([":id" => $user_id]);
+    $r = $stmt->fetch(PDO::FETCH_ASSOC);
+    error_log("user: " . var_export($r, true));
+    $username = se($r, "username", "", false);
+    $created = se($r, "created", "", false);
+    $public = se($r, "visibility", 0, false) > 0;
+    if (!$public && !$isMe) {
+        flash("User's profile is private", "warning");
+        redirect("home.php");
+    }
+} catch (Exception $e) {
+    echo "<pre>" . var_export($e->errorInfo, true) . "</pre>";
+}
 ?>
 <div class="container-fluid">
-    <h1>Profile</h1>
+<h1>Profile</h1>
+    <?php if ($isMe) : ?>
+        <?php if ($edit) : ?>
+            <a class="btn btn-primary" href="?">View</a>
+        <?php else : ?>
+            <a class="btn btn-primary" href="?edit=true">Edit</a>
+        <?php endif; ?>
+    <?php endif; ?>
     <div>
-        <?php $scores = get_latest_scores($user_id); ?>
+        Best Score: <?php echo get_best_score($user_id); ?>
+    </div>
+    <?php if (!$edit) : ?>
+        <div>Username: <?php se($username); ?></div>
+        <div>Joined: <?php se($created); ?></div>
+        <!-- TODO any other public info -->
+    <?php endif; ?>
+    <div>
+        <?php $per_page = 10;
+$total_query = "SELECT count(1) as total from GameScores where user_id=$user_id";
+$params = [];
+paginate($total_query,$params,$per_page);
+$query = "SELECT id,score,user_id,created,username from GameScores";
+$query .= " WHERE user_id=$user_id ORDER BY created Asc LIMIT $offset, 10";
+$stmt = $db->prepare($query); 
+$scores=[];
+try {
+    $stmt->execute(); 
+    $r = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    if ($r) {
+        $scores = $r;
+    }
+} catch (PDOException $e) {
+    flash("Error getting Competitions" . var_export($e, true) . "</pre>");
+} ?>
         <?php $points = get_latest_points($user_id); ?> 
-        <h3>Latest 10 Scores</h3>   
-        <table class="table text-light">    
+        <h3>Score History</h3>
+        <table class="table text-light">
             <thead>
                 <th>Score</th>
                 <th>Time</th>
             </thead>
-            Points: 
+            Current Points: 
             <?php
-            echo $points[0]["points"];// var_dump($points); 
+            echo $points[0]["points"]; 
             ?>
             <tbody>
                 <?php foreach ($scores as $score) : ?>
@@ -110,32 +166,43 @@ $user_id = get_user_id();
                 <?php endforeach; ?>
             </tbody>
         </table>
+        <?php include(__DIR__ . "/../../partials/pagination.php"); ?>
     </div>
-    <form method="POST" onsubmit="return validate(this);">
-        <div class="mb-3">
-            <label class="form-label" for="email">Email</label>
-            <input class="form-control" type="email" name="email" id="email" value="<?php se($email); ?>" />
-        </div>
-        <div class="mb-3">
-            <label class="form-label" for="username">Username</label>
-            <input class="form-control" type="text" name="username" id="username" value="<?php se($username); ?>" />
-        </div>
-        <!-- DO NOT PRELOAD PASSWORD -->
-        <div class="mb-3">Password Reset</div>
-        <div class="mb-3">
-            <label class="form-label" for="cp">Current Password</label>
-            <input class="form-control" type="password" name="currentPassword" id="cp" />
-        </div>
-        <div class="mb-3">
-            <label class="form-label" for="np">New Password</label>
-            <input class="form-control" type="password" name="newPassword" id="np" />
-        </div>
-        <div class="mb-3">
-            <label class="form-label" for="conp">Confirm Password</label>
-            <input class="form-control" type="password" name="confirmPassword" id="conp" />
-        </div>
-        <input type="submit" class="mt-3 btn btn-primary" value="Update Profile" name="save" />
-    </form>
+    
+
+    <?php if ($isMe && $edit) : ?>
+        <form method="POST" onsubmit="return validate(this);">
+            <div class="mb-3">
+                <div class="form-check form-switch">
+                    <input name="visibility" class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" <?php if ($public) echo "checked"; ?>>
+                    <label class="form-check-label" for="flexSwitchCheckDefault">Make Profile Public</label>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="email">Email</label>
+                <input class="form-control" type="email" name="email" id="email" value="<?php se($email); ?>" />
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="username">Username</label>
+                <input class="form-control" type="text" name="username" id="username" value="<?php se($username); ?>" />
+            </div>
+            <!-- DO NOT PRELOAD PASSWORD -->
+            <div class="mb-3"><u>Password Reset</u></div>
+            <div class="mb-3">
+                <label class="form-label" for="cp">Current Password</label>
+                <input class="form-control" type="password" name="currentPassword" id="cp" />
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="np">New Password</label>
+                <input class="form-control" type="password" name="newPassword" id="np" />
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="conp">Confirm Password</label>
+                <input class="form-control" type="password" name="confirmPassword" id="conp" />
+            </div>
+            <input type="submit" class="mt-3 btn btn-primary" value="Update Profile" name="save" />
+        </form>
+    <?php endif; ?>
 </div>
 <script>
     function validate(form) {

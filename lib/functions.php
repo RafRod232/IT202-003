@@ -159,7 +159,7 @@ function get_top_10($duration = "day")
         $d = $duration;
     }
     $db = getDB();
-    $query = "SELECT user_id,username, score, GameScores.created from GameScores join Users on GameScores.user_id = Users.id";
+    $query = "SELECT user_id,score,GameScores.created,Users.username from GameScores join Users on GameScores.user_id = Users.id";
     if ($d !== "lifetime") {
         $query .= " WHERE GameScores.created >= DATE_SUB(NOW(), INTERVAL 1 $d)";
     }
@@ -358,6 +358,7 @@ function get_user_id_from_comp($comp_id){//This should return all user ids in th
 function join_competition($comp_id, $user_id, $cost)
 {
     $points = get_points();
+    echo($points);
     if ($comp_id > 0) {
         if ($points >= $cost) {
             $db = getDB();
@@ -368,6 +369,8 @@ function join_competition($comp_id, $user_id, $cost)
                 if ($r) {
                     $cost = (int)se($r, "join_fee", 0, false);
                     $name = se($r, "title", "", false);
+                    echo($cost);    
+                    echo($points);
                     if ($points >= $cost) {
                         if (adjust_points($cost*-1, get_user_id(), "Join Competition" . $comp_id)) {
                             if (add_to_competition($comp_id, $user_id)) {
@@ -380,7 +383,7 @@ function join_competition($comp_id, $user_id, $cost)
                             return false;
                         }
                     } else {
-                        flash("You can't afford to join this competition1", "warning");
+                        flash("You can't afford to join this competition", "warning");
                         return false;
 
                     }
@@ -430,7 +433,7 @@ function elog($data)
     $db = getDB();
     //below if a user can win more than one place
     $stmt = $db->prepare(
-        "SELECT score, s.created, u.id as user_id FROM Scores s 
+        "SELECT score, s.created, u.id as user_id,u.username as username FROM GameScores s 
     JOIN CompetitionParticipants pc on pc.user_id = s.user_id 
     JOIN Competitions c on c.id = pc.competition_id
     JOIN Users u on u.id = s.user_id WHERE c.id = :cid AND s.score >= c.min_score AND s.created 
@@ -547,3 +550,108 @@ function calc_winners()
     }
     elog("Done calc winners");
 } 
+function paginate($query, $params = [], $per_page = 10)
+{
+    global $page; //will be available after function is called
+    try {
+        $page = (int)se($_GET, "page", 1, false);
+    } catch (Exception $e) {
+        //safety for if page is received as not a number
+        $page = 1;
+    }
+    $db = getDB();
+    $stmt = $db->prepare($query);
+    try {
+        $stmt->execute($params);
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+    } catch (PDOException $e) {
+        error_log("paginate error: " . var_export($e, true));
+    }
+    $total = 0;
+    if (isset($result)) {
+        $total = (int)se($result, "total", 0, false);
+    }
+    global $total_pages; //will be available after function is called
+    $total_pages = ceil($total / $per_page);
+    global $offset; //will be available after function is called
+    $offset = ($page - 1) * $per_page;
+}
+function persistQueryString($page)
+{
+    $_GET["page"] = $page;
+    return http_build_query($_GET);
+}
+function redirect($path)
+{ //header headache
+    //https://www.php.net/manual/en/function.headers-sent.php#90160
+    /*headers are sent at the end of script execution otherwise they are sent when the buffer reaches it's limit and emptied */
+    if (!headers_sent()) {
+        //php redirect
+        die(header("Location: " . get_url($path)));
+    }
+    //javascript redirect
+    echo "<script>window.location.href='" . get_url($path) . "';</script>";
+    //metadata redirect (runs if javascript is disabled)
+    echo "<noscript><meta http-equiv=\"refresh\" content=\"0;url=" . get_url($path) . "\"/></noscript>";
+    die();
+}
+function get_columns($table)
+{
+    $table = se($table, null, null, false);
+    $db = getDB();
+    $query = "SHOW COLUMNS from $table"; //be sure you trust $table
+    $stmt = $db->prepare($query);
+    $results = [];
+    try {
+        $stmt->execute();
+        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    } catch (PDOException $e) {
+        echo "<pre>" . var_export($e, true) . "</pre>";
+    }
+    return $results;
+}
+function update_data($table, $id,  $data, $ignore = ["id", "submit"])
+{
+    $columns = array_keys($data);
+    foreach ($columns as $index => $value) {
+        //Note: normally it's bad practice to remove array elements during iteration
+
+        //remove id, we'll use this for the WHERE not for the SET
+        //remove submit, it's likely not in your table
+        if (in_array($value, $ignore)) {
+            unset($columns[$index]);
+        }
+    }
+    $query = "UPDATE $table SET "; //be sure you trust $table
+    $cols = [];
+    foreach ($columns as $index => $col) {
+        array_push($cols, "$col = :$col");
+    }
+    $query .= join(",", $cols);
+    $query .= " WHERE id = :id";
+
+    $params = [":id" => $id];
+    foreach ($columns as $col) {
+        $params[":$col"] = se($data, $col, "", false);
+    }
+    $db = getDB();
+    $stmt = $db->prepare($query);
+    try {
+        $stmt->execute($params);
+        return true;
+    } catch (PDOException $e) {
+        flash("<pre>" . var_export($e->errorInfo, true) . "</pre>");
+        return false;
+    }
+}
+function inputMap($fieldType)
+{
+    if (str_contains($fieldType, "varchar")) {
+        return "text";
+    } else if ($fieldType === "text") {
+        return "textarea";
+    } else if (in_array($fieldType, ["int", "decimal"])) { //TODO fill in as needed
+        return "number";
+    }
+    return "text"; //default
+}
