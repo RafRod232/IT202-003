@@ -1,5 +1,6 @@
 <?php
 require_once(__DIR__ . "/../lib/functions.php");
+$db = getDB();
 $results = get_latest_10_comp();
 if (isset($_POST["join"])) {
     $user_id = get_user_id();
@@ -8,7 +9,23 @@ if (isset($_POST["join"])) {
     if (join_competition($comp_id, $user_id, $cost)) {
         update_participants($comp_id);
     }
-    // header("Refresh:0");
+}
+$per_page = 10;
+$total_query = "SELECT count(1) as total from Competitions where paid_out<1";
+$params = [];
+paginate($total_query,$params,$per_page);
+$query = "SELECT id,title,duration,expires,current_reward,starting_reward,join_fee,current_participants, min_participants, paid_out, min_score, first_place_per, second_place_per, third_place_per from Competitions";
+$query .= " WHERE paid_out = 0 ORDER BY expires Asc LIMIT $offset, 10";
+$stmt = $db->prepare($query); 
+$results=[];
+try {
+    $stmt->execute(); 
+    $r = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    if ($r) {
+        $results = $r;
+    }
+} catch (PDOException $e) {
+    flash("Error getting Competitions" . var_export($e, true) . "</pre>");
 }
 $participants = [];
 foreach ($results as $result) {
@@ -21,7 +38,6 @@ foreach ($participants as $comp_id => $key) {
 foreach ($participants as $comp_id => $key) {
     foreach ($participants[$comp_id] as $user_id) {
         foreach ($user_id as $uid) {
-            // echo($uid);
             array_push($compsAndParticipants[$comp_id], $uid);
         }
     }
@@ -71,12 +87,14 @@ foreach ($participants as $comp_id => $key) {
                                             <input type="submit" name="join" class="btn btn-light" value="Join (Cost: <?php se($result, "join_fee", 0) ?>)" />
                                         </form>
                                     <?php endif; ?>
+                                    <a class="btn btn-secondary" href="view_comp.php?id=<?php se($result, 'id'); ?>">View</a>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
                     <?php endif; ?>
                 </tbody>
             </table>
+            <?php include(__DIR__ . "/pagination.php"); ?>
         </div>
     </div>
 </div>
