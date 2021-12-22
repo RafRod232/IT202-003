@@ -144,7 +144,7 @@ try {
         $scores = $r;
     }
 } catch (PDOException $e) {
-    flash("Error getting Competitions" . var_export($e, true) . "</pre>");
+    flash("Error getting Score" . var_export($e, true) . "</pre>");
 } ?>
         <?php $points = get_latest_points($user_id); ?> 
         <h3>Score History</h3>
