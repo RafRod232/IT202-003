@@ -1,13 +1,6 @@
 <?php
 require(__DIR__ . "/../../partials/nav.php");
-echo "Defeat As Many Zombies as Possible";
-echo '<br>';
-echo "Final 5 Seconds Earn You Double Points";
 ?>
-<!-- <img src="human_survivor.png" style="display:none;">
-<img1 src="zombie1.jpg" style="display:none;"> -->
-
-
 <canvas id="canvas" width="600" height="400" tabindex="1"></canvas>
 
 <script>
@@ -252,6 +245,11 @@ function sendpoints(){
 menu();
 canvas.focus();
 </script>
+<body>
+<p>Defeat As Many Zombies as Possible
+  <br>
+Final 5 Seconds Earn You Double Points</p>
+</body>
 <?php
 require(__DIR__ . "/../../partials/flash.php");
 ?>
