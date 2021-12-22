@@ -796,11 +796,391 @@ Option 2: Where the score was earned/created between when the user joined the co
 </td>
 </tr></td></tr></table>
 <table>
-<tr><td>Milestone 4</td></tr><tr><td><table><tr><td>F1 - User can set their profile to be public or private (will need another column in Users table) ()</td></tr><tr><td>Status: pending</td></tr><tr><td>Links:</td></tr><tr><td>PRs:</td></tr><tr><td><table><tr><td>F1 - If public, hide email address from other users<tr><td>Status: pending</td></tr><tr><td><img width="600px" src=""><p></td></tr></td></tr></table></td></tr><table><tr><td>F2 - User will be able to see their competition history ()</td></tr><tr><td>Status: pending</td></tr><tr><td>Links:</td></tr><tr><td>PRs:</td></tr><tr><td><table><tr><td>F2 - Limit to 10 results<tr><td>Status: pending</td></tr><tr><td><img width="600px" src=""><p></td></tr></td></tr></table></td></tr><tr><td><table><tr><td>F2 - Paginate anything after 10 <tr><td>Status: pending</td></tr><tr><td><img width="600px" src=""><p></td></tr></td></tr></table></td></tr><tr><td><table><tr><td>F2 -  If no results, show the appropriate message<tr><td>Status: pending</td></tr><tr><td><img width="600px" src=""><p></td></tr></td></tr></table></td></tr><table><tr><td>F3 - User with the role of “admin” can edit a competition where paid_out = false ()</td></tr><tr><td>Status: pending</td></tr><tr><td>Links:</td></tr><tr><td>PRs:</td></tr><tr><td><table><tr><td>F3 - They can adjust any of the regular form values<tr><td>Status: pending</td></tr><tr><td><img width="600px" src=""><p></td></tr></td></tr></table></td></tr><tr><td><table><tr><td>F3 - If the competition was expired they can update the duration to include extra time<tr><td>Status: pending</td></tr><tr><td><img width="600px" src=""><p></td></tr></td></tr></table></td></tr><table><tr><td>F4 - Add pagination to the Active Competitions view ()</td></tr><tr><td>Status: pending</td></tr><tr><td>Links:</td></tr><tr><td>PRs:</td></tr><tr><td><table><tr><td>F4 - Show 10 competitions per page<tr><td>Status: pending</td></tr><tr><td><img width="600px" src=""><p></td></tr></td></tr></table></td></tr><tr><td><table><tr><td>F4 - Paginate anything after 10<tr><td>Status: pending</td></tr><tr><td><img width="600px" src=""><p></td></tr></td></tr></table></td></tr><tr><td><table><tr><td>F4 - If no results, show the appropriate message<tr><td>Status: pending</td></tr><tr><td><img width="600px" src=""><p></td></tr></td></tr></table></td></tr><table><tr><td>F5 - Anywhere a username is displayed should be a link to that user’s profile ()</td></tr><tr><td>Status: pending</td></tr><tr><td>Links:</td></tr><tr><td>PRs:</td></tr><tr><td><table><tr><td>F5 - This includes all scoreboards<tr><td>Status: pending</td></tr><tr><td><img width="600px" src=""><p></td></tr></td></tr></table></td></tr><tr><td><table><tr><td>F5 - This includes all scoreboards If the profile is private you can have the page just display “this profile is private” upon access<tr><td>Status: pending</td></tr><tr><td><img width="600px" src=""><p></td></tr></td></tr></table></td></tr><table><tr><td>F6 - Viewing an active or expired competition should show the top 10 scoreboard related to that competition ()</td></tr><tr><td>Status: pending</td></tr><tr><td>Links:</td></tr><tr><td>PRs:</td></tr><tr><td><table><tr><td>F6 - item 1<tr><td>Status: pending</td></tr><tr><td><img width="600px" src=""><p></td></tr></td></tr></table></td></tr><table><tr><td>F7 - Game should be fully implemented/complete by this point ()</td></tr><tr><td>Status: pending</td></tr><tr><td>Links:</td></tr><tr><td>PRs:</td></tr><tr><td><table><tr><td>F7 - Game should tell the player if they’re not logged in that their score will not be recorded.<tr><td>Status: pending</td></tr><tr><td><img width="600px" src=""><p></td></tr></td></tr></table></td></tr><table><tr><td>F8 - User’s score history will include pagination ()</td></tr><tr><td>Status: pending</td></tr><tr><td>Links:</td></tr><tr><td>PRs:</td></tr><tr><td><table><tr><td>F8 - Show latest 10 <tr><td>Status: pending</td></tr><tr><td><img width="600px" src=""><p></td></tr></td></tr></table></td></tr><tr><td><table><tr><td>F8 - Paginate after 10 <tr><td>Status: pending</td></tr><tr><td><img width="600px" src=""><p></td></tr></td></tr></table></td></tr><tr><td><table><tr><td>F8 - Show appropriate message for no results<tr><td>Status: pending</td></tr><tr><td><img width="600px" src=""><p></td></tr></td></tr></table></td></tr><table><tr><td>F9 - Home page will have a weekly, monthly, and lifetime scoreboard ()</td></tr><tr><td>Status: pending</td></tr><tr><td>Links:</td></tr><tr><td>PRs:</td></tr><tr><td><table><tr><td>F9 - Will also have a link to the game<tr><td>Status: pending</td></tr><tr><td><img width="600px" src=""><p></td></tr></td></tr></table></td></tr><tr><td><table><tr><td>F9 - Scoreboards will show username and points for the session (See requirement about username linking to profile)<tr><td>Status: pending</td></tr><tr><td><img width="600px" src=""><p></td></tr></td></tr></table></td></tr></td></tr></table>
-<<<<<<< HEAD
->>>>>>> 76cb047bbb7c3e771231dbd83e82406f17175cdb
-=======
->>>>>>> 716468769fa72ef9798312c1eb6f6d713f4f031c
+<tr><td>Milestone 4</td></tr><tr><td>
+<table>
+<tr><td>F1 - User can set their profile to be public or private (will need another column in Users table) ()</td></tr>
+<tr><td>Status: pending</td></tr>
+<tr><td>Links:<p>
+
+ [https://rar22-prod.herokuapp.com/Project/login.php](https://rar22-prod.herokuapp.com/Project/login.php)</p></td></tr>
+<tr><td>PRs:<p>
+
+ [https://github.com/RafRod232/IT202-003/pull/87](https://github.com/RafRod232/IT202-003/pull/87)</p></td></tr>
+<tr><td>
+<table>
+<tr><td>F1 - If public, hide email address from other users</td></tr>
+<tr><td>Status: 
+<img width="100" height="20" src="https://via.placeholder.com/400x120/ffcc00/ffffff?text=in-progress"></td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/89927101/147029362-473d3a9a-d94c-4019-be1c-68911ecf049c.png">
+<p>The page shows username and no email</p>
+</td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/89927101/147029420-1d019d8d-5cfc-47c5-9a09-c4920ed2605f.png">
+<p>This shows the option to change profile into private or public but does not stay after clicking button default is private</p>
+</td></tr>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<table>
+<tr><td>F2 - User will be able to see their competition history ()</td></tr>
+<tr><td>Status: complete</td></tr>
+<tr><td>Links:<p>
+
+ [https://rar22-prod.herokuapp.com/Project/competitionH.php](https://rar22-prod.herokuapp.com/Project/competitionH.php)</p></td></tr>
+<tr><td>PRs:<p>
+
+ [https://github.com/RafRod232/IT202-003/pull/90](https://github.com/RafRod232/IT202-003/pull/90)</p></td></tr>
+<tr><td>
+<table>
+<tr><td>F2 - Limit to 10 results </td></tr>
+<tr><td>Status: 
+<img width="100" height="20" src="https://via.placeholder.com/400x120/009955/fff?text=completed"></td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/89927101/147029791-4e61c51c-c00f-4230-8bc0-1be4ee462baf.png">
+<p>Limited to 10</p>
+</td></tr>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr><td>
+<table>
+<tr><td>F2 - Paginate anything after 10 </td></tr>
+<tr><td>Status: 
+<img width="100" height="20" src="https://via.placeholder.com/400x120/009955/fff?text=completed"></td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/89927101/147029768-f3351df1-c758-498d-a73c-cb167b1e3774.png">
+<p>Next Page shows it after 10</p>
+</td></tr>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr><td>
+<table>
+<tr><td>F2 - If no results, show the appropriate message</td></tr>
+<tr><td>Status: 
+<img width="100" height="20" src="https://via.placeholder.com/400x120/009955/fff?text=completed"></td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/89927101/147029857-a7303c28-a5b3-4167-a393-24ab9d4aa353.png">
+<p>Shows no competitions for new users that have not joined any competitions</p>
+</td></tr>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<table>
+<tr><td>F3 - User with the role of “admin” can edit a competition where paid_out = false ()</td></tr>
+<tr><td>Status: complete</td></tr>
+<tr><td>Links:<p>
+
+ [https://rar22-prod.herokuapp.com/Project/profile.php](https://rar22-prod.herokuapp.com/Project/profile.php)</p></td></tr>
+<tr><td>PRs:<p>
+
+ [https://github.com/RafRod232/IT202-003/pull/91](https://github.com/RafRod232/IT202-003/pull/91)</p></td></tr>
+<tr><td>
+<table>
+<tr><td>F3 - They can adjust any of the regular form values </td></tr>
+<tr><td>Status: 
+<img width="100" height="20" src="https://via.placeholder.com/400x120/009955/fff?text=completed"></td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/89927101/147030081-965185e4-1bd2-4dd4-9d4f-5d7ac3393a40.png">
+<p>Ability to change values in the columns</p>
+</td></tr>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr><td>
+<table>
+<tr><td>F3 - If the competition was expired they can update the duration to include extra time</td></tr>
+<tr><td>Status: 
+<img width="100" height="20" src="https://via.placeholder.com/400x120/009955/fff?text=completed"></td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/89927101/147030108-ccbdfa98-7f9a-4131-9d41-0e296d47dbd8.png">
+<p>change all values that are in the competition </p>
+</td></tr>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<table>
+<tr><td>F4 - Add pagination to the Active Competitions view ()</td></tr>
+<tr><td>Status: complete</td></tr>
+<tr><td>Links:<p>
+
+ [https://rar22-prod.herokuapp.com/Project/list_comp.php](https://rar22-prod.herokuapp.com/Project/list_comp.php)</p></td></tr>
+<tr><td>PRs:<p>
+
+ [https://github.com/RafRod232/IT202-003/pull/86](https://github.com/RafRod232/IT202-003/pull/86)</p></td></tr>
+<tr><td>
+<table>
+<tr><td>F4 - Show 10 competitions per page </td></tr>
+<tr><td>Status: 
+<img width="100" height="20" src="https://via.placeholder.com/400x120/009955/fff?text=completed"></td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/89927101/147030428-ae852896-0b06-4c9d-874e-0a20459c91c8.png">
+<p>Shows only 10 competitions</p>
+</td></tr>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr><td>
+<table>
+<tr><td>F4 - Paginate anything after 10 </td></tr>
+<tr><td>Status: 
+<img width="100" height="20" src="https://via.placeholder.com/400x120/009955/fff?text=completed"></td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/89927101/147030490-454cc3fe-256f-4a7e-aa8f-9f5e19daeb58.png">
+<p>Paginated after first 10 competitions</p>
+</td></tr>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr><td>
+<table>
+<tr><td>F4 - If no results, show the appropriate message</td></tr>
+<tr><td>Status: 
+<img width="100" height="20" src="https://via.placeholder.com/400x120/009955/fff?text=completed"></td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/89927101/147030559-f5ab853f-d5db-427b-be24-d8f22e2e93a6.png">
+<p>Will show error message</p>
+</td></tr>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<table>
+<tr><td>F5 - Anywhere a username is displayed should be a link to that user’s profile ()</td></tr>
+<tr><td>Status: complete</td></tr>
+<tr><td>Links:<p>
+
+ [https://rar22-prod.herokuapp.com/Project/home.php](https://rar22-prod.herokuapp.com/Project/home.php)</p></td></tr>
+<tr><td>PRs:<p>
+
+ [https://github.com/RafRod232/IT202-003/pull/87/files](https://github.com/RafRod232/IT202-003/pull/87/files)</p></td></tr>
+<tr><td>
+<table>
+<tr><td>F5 - This includes all scoreboards </td></tr>
+<tr><td>Status: 
+<img width="100" height="20" src="https://via.placeholder.com/400x120/009955/fff?text=completed"></td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/89927101/147030772-b697968e-4b75-4cb4-9a7e-d948bceb6199.png">
+<p>Scoreboard link in View Competition and other scoreboards</p>
+</td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/89927101/147030869-8c13bfde-ea22-43b0-a8e7-25a918d9532d.png">
+<p>More Link to Profile in different scoreboard</p>
+</td></tr>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr><td>
+<table>
+<tr><td>F5 - If the profile is private you can have the page just display “this profile is private” upon access</td></tr>
+<tr><td>Status: 
+<img width="100" height="20" src="https://via.placeholder.com/400x120/009955/fff?text=completed"></td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/89927101/147030919-7fd9602a-9d62-4437-aa5e-05d0d3dd05c6.png">
+<p>Shows appropriate Message</p>
+</td></tr>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<table>
+<tr><td>F6 - Viewing an active or expired competition should show the top 10 scoreboard related to that competition ()</td></tr>
+<tr><td>Status: complete</td></tr>
+<tr><td>Links:<p>
+
+ [https://rar22-prod.herokuapp.com/Project/list_comp.php](https://rar22-prod.herokuapp.com/Project/list_comp.php)</p></td></tr>
+<tr><td>PRs:<p>
+
+ [https://github.com/RafRod232/IT202-003/pull/88](https://github.com/RafRod232/IT202-003/pull/88)</p></td></tr>
+<tr><td>
+<table>
+<tr><td>F6 - View Competition top scores</td></tr>
+<tr><td>Status: 
+<img width="100" height="20" src="https://via.placeholder.com/400x120/009955/fff?text=completed"></td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/89927101/147031334-8eef3de4-141f-4a43-a671-2a39fb363282.png">
+<p>Can access by clicking on button</p>
+</td></tr>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<table>
+<tr><td>F7 - Game should be fully implemented/complete by this point ()</td></tr>
+<tr><td>Status: complete</td></tr>
+<tr><td>Links:<p>
+
+ [https://rar22-prod.herokuapp.com/Project/game.php](https://rar22-prod.herokuapp.com/Project/game.php)</p></td></tr>
+<tr><td>PRs:<p>
+
+ [https://github.com/RafRod232/IT202-003/pull/94](https://github.com/RafRod232/IT202-003/pull/94)</p></td></tr>
+<tr><td>
+<table>
+<tr><td>F7 - Game should tell the player if they’re not logged in that their score will not be recorded.</td></tr>
+<tr><td>Status: 
+<img width="100" height="20" src="https://via.placeholder.com/400x120/009955/fff?text=completed"></td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/89927101/147031824-3b09ee55-bc9a-426c-8c76-5e707b23181a.png">
+<p>Shows game completed</p>
+</td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/89927101/147031984-54759c22-21e8-4073-996f-07bc11cabd32.png">
+<p>Shows error if not logged in when trying to save points</p>
+</td></tr>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<table>
+<tr><td>F8 - User’s score history will include pagination ()</td></tr>
+<tr><td>Status: complete</td></tr>
+<tr><td>Links:<p>
+
+ [https://rar22-prod.herokuapp.com/Project/home.php](https://rar22-prod.herokuapp.com/Project/home.php)</p></td></tr>
+<tr><td>PRs:<p>
+
+ [https://github.com/RafRod232/IT202-003/pull/90](https://github.com/RafRod232/IT202-003/pull/90)</p></td></tr>
+<tr><td>
+<table>
+<tr><td>F8 - Show latest 10</td></tr>
+<tr><td>Status: 
+<img width="100" height="20" src="https://via.placeholder.com/400x120/009955/fff?text=completed"></td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/89927101/147032169-8142fe62-8e3e-44e5-82a9-13dc163638cb.png">
+<p>Shows 10</p>
+</td></tr>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr><td>
+<table>
+<tr><td>F8 -  Paginate after 10 </td></tr>
+<tr><td>Status: 
+<img width="100" height="20" src="https://via.placeholder.com/400x120/009955/fff?text=completed"></td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/89927101/147032219-17a39121-8451-40dc-a939-3887f28d19b3.png">
+<p>Shows Pagination</p>
+</td></tr>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr><td>
+<table>
+<tr><td>F8 - Show appropriate message for no results</td></tr>
+<tr><td>Status: 
+<img width="100" height="20" src="https://via.placeholder.com/400x120/009955/fff?text=completed"></td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/89927101/147032350-a3cf1b6f-555b-417d-be10-26293c19bb61.png">
+<p>Shows error</p>
+</td></tr>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<table>
+<tr><td>F9 - Home page will have a weekly, monthly, and lifetime scoreboard ()</td></tr>
+<tr><td>Status: complete</td></tr>
+<tr><td>Links:<p>
+
+ [https://rar22-prod.herokuapp.com/Project/home.php](https://rar22-prod.herokuapp.com/Project/home.php)</p></td></tr>
+<tr><td>PRs:<p>
+
+ [https://github.com/RafRod232/IT202-003/pull/89](https://github.com/RafRod232/IT202-003/pull/89)</p></td></tr>
+<tr><td>
+<table>
+<tr><td>F9 - Will also have a link to the game</td></tr>
+<tr><td>Status: 
+<img width="100" height="20" src="https://via.placeholder.com/400x120/009955/fff?text=completed"></td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/89927101/147032770-0f46086d-0a5c-473f-9e81-77b342232d3a.png">
+<p>Link to Game</p>
+</td></tr>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr><td>
+<table>
+<tr><td>F9 -  Scoreboards will show username and scores for the session</td></tr>
+<tr><td>Status: 
+<img width="100" height="20" src="https://via.placeholder.com/400x120/009955/fff?text=completed"></td></tr>
+
+<tr><td>
+<img width="768px" src="https://user-images.githubusercontent.com/89927101/147032819-ebc12c12-464d-4fbc-8461-83f866b58f31.png">
+<p>Shows scores of all durations</p>
+</td></tr>
+
+</td>
+</tr>
+</table>
+</td>
+</tr></td></tr></table>
 ### Intructions
 #### Don't delete this
 1. Pick one project type
