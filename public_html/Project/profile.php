@@ -123,8 +123,29 @@ try {
     <div>
         Best Score: <?php echo get_best_score($user_id); ?>
     </div>
+    <?php if (!$edit) : ?>
+        <div>Username: <?php se($username); ?></div>
+        <div>Joined: <?php se($created); ?></div>
+        <!-- TODO any other public info -->
+    <?php endif; ?>
     <div>
-        <?php $scores = get_latest_scores($user_id); ?>
+        <?php $per_page = 10;
+$total_query = "SELECT count(1) as total from GameScores where user_id=$user_id";
+$params = [];
+paginate($total_query,$params,$per_page);
+$query = "SELECT id,score,user_id,created,username from GameScores";
+$query .= " WHERE user_id=$user_id ORDER BY created Asc LIMIT $offset, 10";
+$stmt = $db->prepare($query); 
+$scores=[];
+try {
+    $stmt->execute(); 
+    $r = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    if ($r) {
+        $scores = $r;
+    }
+} catch (PDOException $e) {
+    flash("Error getting Competitions" . var_export($e, true) . "</pre>");
+} ?>
         <?php $points = get_latest_points($user_id); ?> 
         <h3>Score History</h3>
         <table class="table text-light">
@@ -132,7 +153,7 @@ try {
                 <th>Score</th>
                 <th>Time</th>
             </thead>
-            Points: 
+            Current Points: 
             <?php
             echo $points[0]["points"]; 
             ?>
@@ -145,12 +166,9 @@ try {
                 <?php endforeach; ?>
             </tbody>
         </table>
+        <?php include(__DIR__ . "/../../partials/pagination.php"); ?>
     </div>
-    <?php if (!$edit) : ?>
-        <div>Username: <?php se($username); ?></div>
-        <div>Joined: <?php se($created); ?></div>
-        <!-- TODO any other public info -->
-    <?php endif; ?>
+    
 
     <?php if ($isMe && $edit) : ?>
         <form method="POST" onsubmit="return validate(this);">
