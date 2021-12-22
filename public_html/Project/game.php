@@ -1,19 +1,33 @@
 <?php
 require(__DIR__ . "/../../partials/nav.php");
 ?>
-//
-Collect The Square game
 <canvas id="canvas" width="600" height="400" tabindex="1"></canvas>
+
 <script>
 // Get a reference to the canvas DOM element
 var canvas = document.getElementById('canvas');
 // Get the canvas drawing context
 var context = canvas.getContext('2d');
+var background = new Image();
+background.src = "graveyard_background.jpg";
+background.onload = function(){
+  context.drawImage(background,0,0);
+  context.font = '36px Arial';
+  context.fillStyle ='#E1E1E1';
+  context.textAlign = 'center';
+  context.fillText('Attack The Zombies', canvas.width / 2, canvas.height / 4);
+  context.font = '24px Arial';
+  context.fillText('Click to Start', canvas.width / 2, canvas.height / 2);
+  context.font = '18px Arial'
+  context.fillText('Use the arrow keys to move', canvas.width / 2, (canvas.height / 4) * 3);
+  // Start the game on a click
+  canvas.addEventListener('click', startGame);
 
+}
 // Your score
 var score = 0;
 var points = 0;
-var reason = "From game";
+var reason = "Played game";
 // Properties for your square
 var x = 50; // X position
 var y = 100; // Y position
@@ -80,10 +94,11 @@ canvas.addEventListener('keyup', function(event) {
 // Show the start menu
 function menu() {
   erase();
-  context.fillStyle = '#000000';
+  context.drawImage(background,0,0);
+  context.fillStyle = '#E1E1E1';
   context.font = '36px Arial';
   context.textAlign = 'center';
-  context.fillText('Collect the Square!', canvas.width / 2, canvas.height / 4);
+  context.fillText('Attack The Zombies', canvas.width / 2, canvas.height / 4);
   context.font = '24px Arial';
   context.fillText('Click to Start', canvas.width / 2, canvas.height / 2);
   context.font = '18px Arial'
@@ -116,7 +131,11 @@ function endGame() {
   if(points>0){
     sendpoints();
   }
-  context.fillStyle = '#000000';
+  var background = new Image();
+background.src = "graveyard_background.jpg";
+context.drawImage(background,0,0);
+  
+  context.fillStyle = '#E1E1E1';
   context.font = '24px Arial';
   context.textAlign = 'center';
   context.fillText('Final Score: ' + score, canvas.width / 2, canvas.height / 4);
@@ -138,6 +157,10 @@ function erase() {
 // The main draw loop
 function draw() {
   erase();
+var background = new Image();
+background.src = "graveyard_background.jpg";
+context.drawImage(background,0,0);
+
   // Move the square
   if (down) {
     y += speed;
@@ -171,16 +194,20 @@ function draw() {
       moveTarget();
       // Increase the score
       score++;
+      //Double score in final seconds
+      if(countdown<=5){
+        score++;
+      }
       if(score%4==0){
         points++;
       }
     }
   }
   // Draw the square
-  context.fillStyle = '#FF0000';
+  context.fillStyle = '#CD853F';
   context.fillRect(x, y, sideLength, sideLength);
   // Draw the target 
-  context.fillStyle = '#00FF00';
+  context.fillStyle = '#292E5C'; //making color to try to blend in and distract the user and delay from finding square
   context.fillRect(targetX, targetY, targetLength, targetLength);
   // Draw the score and time remaining
   context.fillStyle = '#000000';
@@ -218,6 +245,11 @@ function sendpoints(){
 menu();
 canvas.focus();
 </script>
+<body>
+<p>Defeat As Many Zombies as Possible
+  <br>
+Final 5 Seconds Earn You Double Points</p>
+</body>
 <?php
 require(__DIR__ . "/../../partials/flash.php");
 ?>
